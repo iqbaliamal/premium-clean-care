@@ -10,7 +10,7 @@ include("config/koneksi.php");
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#beranda">Beranda</a>
+            <a class="nav-link" href="index.php">Beranda</a>
           </li>
           <!-- <li class="nav-item">
             <span class="nav-link" href="">|</span>
@@ -28,8 +28,8 @@ include("config/koneksi.php");
       </div>
     </nav>
   </div>
-  <div class="container d-flex align-items-center justify-content-between">
 
+  <div class="container d-flex align-items-center justify-content-between">
 
     <h1 class="logo"><a href="index.php">LOGO<span>.</span></a></h1>
     <!-- Uncomment below if you prefer to use an image logo -->
@@ -44,6 +44,7 @@ include("config/koneksi.php");
         <li><a href="#ceknota">CEK NOTA</a></li>
       </ul>
     </nav><!-- .nav-menu -->
+  </div>
 </header><!-- End Header -->
 
 
@@ -63,7 +64,7 @@ include("config/koneksi.php");
 
 <main id="main">
 
-  <!-- ======= Services Section ======= -->
+  <!-- ======= Layanan Terfavorit Section ======= -->
   <section id="favorit" class="services">
     <div class="container" data-aos="fade-up">
 
@@ -100,9 +101,9 @@ include("config/koneksi.php");
       </div>
 
     </div>
-  </section><!-- End Services Section -->
+  </section><!-- End Layanan Terfavorit Section -->
 
-  <!-- ======= Portfolio Section ======= -->
+  <!-- ======= Layanan Section ======= -->
   <section id="layanan" class="portfolio">
     <div class="container" data-aos="fade-up">
 
@@ -188,7 +189,7 @@ include("config/koneksi.php");
       </div>
 
     </div>
-  </section><!-- End Portfolio Section -->
+  </section><!-- End Layanan Section -->
 
   <!-- ======= Testimonials Section ======= -->
   <section id="testimonials" class="testimonials">
@@ -251,6 +252,7 @@ include("config/koneksi.php");
     </div>
   </section><!-- End Testimonials Section -->
 
+  <!-- Cek Nota Section -->
   <section id="ceknota">
     <div class="container" data-aos="fade-up">
       <div class="section-title">
@@ -277,7 +279,7 @@ include("config/koneksi.php");
       </div>
     </div>
   </section>
-
+  <!-- End of cek nota section -->
 
 </main><!-- End #main -->
 <?php
