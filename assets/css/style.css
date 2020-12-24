@@ -1614,7 +1614,7 @@ section {
   border-radius: 0 50% 50% 0;
 } 
 .login{
-  margin: auto;
+  margin: auto; 
   padding: 20px 60px 20px 60px;
 }
 .login button{

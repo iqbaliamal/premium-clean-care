@@ -22,7 +22,7 @@ include("config/koneksi.php");
             <span class="nav-link" href="">|</span>
           </li>
           <li class="nav-item">
-            <a href="aplication/public/login.php" class="nav-link">Login</a>
+            <a href="aplication/auth" class="nav-link">Login</a>
           </li>
         </ul>
       </div>
@@ -76,25 +76,22 @@ include("config/koneksi.php");
       <div class="row">
         <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
           <div class="icon-box">
-            <div class="icon"><i class="bx bxl-dribbble"></i></div>
-            <h4><a href="">Lorem Ipsum</a></h4>
-            <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+            <img src="assets/img/s1.jpeg" class="img-fluid" alt="">
+            <h4><a href="aplication/public/detail_transaksi.php">FAST CLEAN</a></h4>
           </div>
         </div>
 
         <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
           <div class="icon-box">
-            <div class="icon"><i class="bx bx-file"></i></div>
-            <h4><a href="">Sed ut perspiciatis</a></h4>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+          <img src="assets/img/s2.jpeg" class="img-fluid" alt="">
+            <h4><a href="aplication/public/detail_transaksi.php">DEEP CLEAN</a></h4>
           </div>
         </div>
 
         <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
           <div class="icon-box">
-            <div class="icon"><i class="bx bx-tachometer"></i></div>
-            <h4><a href="">Magni Dolores</a></h4>
-            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+          <img src="assets/img/T2.jpeg" class="img-fluid" alt="">
+            <h4><a href="aplication/public/detail_transaksi.php">HAT CLEAN</a></h4>
           </div>
         </div>
 
@@ -129,7 +126,7 @@ include("config/koneksi.php");
         <div class="col-lg-3 col-md-6 portfolio-item filter-sepatu">
           <div class="member">
             <div class="member-img portfolio-wrap">
-              <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
+              <img src="assets/img/s1.jpeg" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>Layanan 1</h4>
                 <p>Jenis layanan</p>
@@ -144,7 +141,7 @@ include("config/koneksi.php");
         <div class="col-lg-3 col-md-6 portfolio-item filter-tas">
           <div class="member">
             <div class="member-img portfolio-wrap">
-              <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
+              <img src="assets/img/t3.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>Layanan 1</h4>
                 <p>Rp 30.000</p>
@@ -159,7 +156,7 @@ include("config/koneksi.php");
         <div class="col-lg-3 col-md-6 portfolio-item filter-topi">
           <div class="member">
             <div class="member-img portfolio-wrap">
-              <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
+              <img src="assets/img/t2.jpeg" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>Layanan 1</h4>
                 <p>Rp 25.000</p>
@@ -174,7 +171,7 @@ include("config/koneksi.php");
         <div class="col-lg-3 col-md-6 portfolio-item filter-sepatu-wanita">
           <div class="member">
             <div class="member-img portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
+              <img src="assets/img/s3.jpeg" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>Layanan 1</h4>
                 <p>Jenis layanan</p>
