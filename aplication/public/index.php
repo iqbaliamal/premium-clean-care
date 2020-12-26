@@ -1,53 +1,3 @@
-<?php
-
-include("header.php");
-include("config/koneksi.php");
-?>
-<!-- ======= Header ======= -->
-<header id="header" class="fixed-top">
-  <div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-white navbar-up py-0">
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="index.php">Beranda</a>
-          </li>
-          <!-- <li class="nav-item">
-            <span class="nav-link" href="">|</span>
-          </li> -->
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="aplication/public/contact.php">Hubungi Kami</a>
-          </li> -->
-          <li class="nav-item">
-            <span class="nav-link" href="">|</span>
-          </li>
-          <li class="nav-item">
-            <a href="aplication/auth" class="nav-link">Login</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </div>
-
-  <div class="container d-flex align-items-center justify-content-between">
-
-    <h1 class="logo"><a href="index.php">LOGO<span>.</span></a></h1>
-    <!-- Uncomment below if you prefer to use an image logo -->
-    <!-- <a href="index.php" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-
-    <nav class="nav-menu d-none d-lg-block m-auto">
-      <ul>
-        <li class="active"><a href="index.php">BERANDA</a></li>
-        <li><a href="#favorit">FAVORIT</a></li>
-        <li><a href="#layanan">LAYANAN</a></li>
-        <li><a href="#testimonials">TESTIMONI</a></li>
-        <li><a href="#ceknota">CEK NOTA</a></li>
-      </ul>
-    </nav><!-- .nav-menu -->
-  </div>
-</header><!-- End Header -->
-
-
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex align-items-center justify-content-center">
   <div class="container" data-aos="fade-up">
@@ -83,14 +33,14 @@ include("config/koneksi.php");
 
         <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
           <div class="icon-box">
-          <img src="assets/img/s2.jpeg" class="img-fluid" alt="">
+            <img src="assets/img/s2.jpeg" class="img-fluid" alt="">
             <h4><a href="aplication/public/detail_transaksi.php">DEEP CLEAN</a></h4>
           </div>
         </div>
 
         <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
           <div class="icon-box">
-          <img src="assets/img/T2.jpeg" class="img-fluid" alt="">
+            <img src="assets/img/T2.jpeg" class="img-fluid" alt="">
             <h4><a href="aplication/public/detail_transaksi.php">HAT CLEAN</a></h4>
           </div>
         </div>
@@ -268,18 +218,35 @@ include("config/koneksi.php");
                 <div class="loading"></div>
                 <div class="error-message"></div>
                 <div class="sent-message"></div>
-                <button type="submit" class="btn btn-secondary float-right">Cek Status</button>
+                <button type="submit" class="btn btn-dark float-right">Cek Status</button>
               </div>
             </div>
           </div>
         </form>
       </div>
+
+      <div class="row justify-content-md-center">
+        <ul class="bulat-proses">
+          <li class="active">Penjemputan</li>
+          <li>Proses Cuci</li>
+          <li>Pengantaran</li>
+          <li>Selesai</li>
+        </ul>
+      </div>
+      <div class="row justify-content-center mt-4">
+        <ul class="detail_cek">
+          <li><b>NOMOR NOTA : </b> PCAC001</li>
+          <li>Nomor Nota : PCAC001</li>
+          <li>Nomor Nota : PCAC001</li>
+          <li>Nomor Nota : PCAC001</li>
+          <li>Nomor Nota : PCAC001</li>
+        </ul>
+      </div>
+
+
+
     </div>
   </section>
   <!-- End of cek nota section -->
 
 </main><!-- End #main -->
-<?php
-
-include("footer.php");
-?>

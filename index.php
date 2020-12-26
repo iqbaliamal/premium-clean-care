@@ -1,3 +1,56 @@
 <?php
 
-include("aplication/public/index.php");
+include("aplication/public/header.php");
+include("config/koneksi.php");
+
+// KONTEN
+if (isset($_GET['page'])) {
+  $page = $_GET['page'];
+
+  switch ($page) {
+    case 'home':
+      include "aplication/public/index.php";
+      break;
+    case 'login':
+      include "aplication/auth/index.php";
+      break;
+    case 'detail':
+      include "aplication/public/detail_transaksi.php";
+      break;
+    case 'register':
+      include "aplication/auth/register.php";
+      break;
+    case 'forgot':
+      include "aplication/auth/lupa_password.php";
+      break;
+      // case 'order':
+      //   include "order.php";
+      //   break;
+      // case 'order_status':
+      //   include "order_status.php";
+      //   break;
+      // case 'profile':
+      //   include "profile.php";
+      //   break;
+      // case 'testimoni':
+      //   include "testimoni.php";
+      //   break;
+      // case 'blank':
+      //   include "blank.php";
+      //   break;
+      // case '404':
+      //   include "404.php";
+      //   break;
+      // case 'tables':
+      //   include "tables.php";
+      //   break;
+    default:
+      include "aplication/public/404.php";
+      break;
+  }
+} else {
+  include "aplication/public/index.php";
+}
+// END OF KONTEN
+
+include("aplication/public/footer.php");
