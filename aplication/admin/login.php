@@ -35,7 +35,7 @@
 						</div>
 						<!-- END OF ALERT -->
 
-						<form action="" method="POST">
+						<form action="fungsi/auth.php" method="POST">
 							<div class="form-group">
 								<input type="text" name="username" class="form-control" placeholder="Username or Email">
 							</div>
