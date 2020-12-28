@@ -2,7 +2,7 @@
 session_start();
 require_once "../../config/koneksi.php";
 
-// REGISTER MEMBER
+// REGISTER MEMBER ============================================================================
 /**
  * This example shows settings to use when sending via Google's Gmail servers.
  * This uses traditional id & password authentication - look at the gmail_xoauth.phps
@@ -97,3 +97,85 @@ if (isset($_POST['register'])) {
     }
   }
 }
+// END OF REGISTER MEMBER ============================================================================
+
+// RESET PASSWORD ====================================================================================
+if (isset($_POST['reset_pw'])) {
+  $email = $_POST["email"];
+  $expFormat = mktime(date("H"), date("i"), date("s"), date("m"), date("d") + 1, date("Y"));
+  $expDate = date("Y-m-d H:i:s", $expFormat);
+  $key = md5(2418 * 2 + $email);
+  $addKey = substr(md5(uniqid(rand(), 1)), 3, 10);
+  $key = $key . $addKey;
+  // Insert ke temp table
+  $query = $koneksi->query("INSERT INTO reset_pw_temp SET email='$email', expdate='$expDate', token='$key'");
+
+  // Email kirim
+  $output = '<p>Halo,</p>';
+  $output .= '<p>silahkan klik tombol berikut untuk reset password!</p>';
+  $output .= '<p>-------------------------------------------------------------</p>';
+  $output .= '<p><a href="http://localhost/premium-clean-care/index.php?page=resetpw&token=' . $key . '&email=' . $email . '&action=reset" target="_blank">Klik disini</a></p>';
+  $output .= '<br><br>';
+  $output .= '<p>Jika tombol tidak berfungsi, klik link berikut!</p> <br>';
+  $output .= 'http://localhost/premium-clean-care/index.php?page=resetpw&token=' . $key . '&email=' . $email . '&action=reset <br>';
+  $output .= '<p>-------------------------------------------------------------</p>';
+  $output .= '<p>Link ini hanya berlaku 1 hari.';
+  $output .= '<p>If you did not request this forgotten password email, no action 
+is needed, your password will not be reset. However, you may want to log into 
+your account and change your security password as someone may have guessed it.</p>';
+  $body = $output;
+  $subject = "Account Recovery - Premium Clean And Care";
+
+  $email_to = $email;
+  $fromserver = "no-reply@premium.com";
+  $mail = new PHPMailer();
+  $mail->IsSMTP();
+  $mail->Host = "smtp.gmail.com"; // Enter your host here
+  $mail->SMTPAuth = true;
+  $mail->Username = "iqbalakunsendmail@gmail.com"; // Enter your email here
+  $mail->Password = "Iqbal2000"; //Enter your passwrod here
+  $mail->Port = 587;
+  $mail->IsHTML(true);
+  $mail->setFrom('no-reply@premium.com', 'Premium Clean And Care');
+  $mail->FromName = "Premium Clean And Care";
+  $mail->Sender = $fromserver; // indicates ReturnPath header
+  $mail->Subject = $subject;
+  $mail->Body = $body;
+  $mail->AddAddress($email_to);
+  if (!$mail->Send()) {
+    echo "Mailer Error: " . $mail->ErrorInfo;
+  } else {
+    //     echo "<div class='error'>
+    // <p>An email has been sent to you with instructions on how to reset your password.</p>
+    // </div><br /><br /><br />";
+    header('Location: ../../index.php?page=forgot&sukses=Email recovery account telah dikirim, silahkan cek email anda untuk reset password!');
+  }
+} else {
+  header('Location: ../../index.php?page=forgot&error=Masukkan email terlebih dahulu!');
+}
+// END OF RESET PASSWORD ====================================================================================
+
+
+// RESET PASSWORD ====================================================================================
+if (isset($_POST['simpan_reset_pw'])) {
+  if (isset($_POST["email"]) && isset($_POST["action"]) && ($_POST["action"] == "update")) {
+    $pass1 = $_POST["password1"];
+    $pass2 = $_POST["password2"];
+    $email = $_POST["email"];
+    $curDate = date("Y-m-d H:i:s");
+    if (isset($pass1, $pass2)) {
+      if ($pass1 != $pass2) {
+        echo '<script>alert("Password tidak sesuai");</script>';
+        // header('Location: ../../index.php?page=resetpw&error=Password tidak cocok!');
+      } else {
+        $password = password_hash($pass1, PASSWORD_DEFAULT);
+        $qupdate = $koneksi->query("UPDATE member SET password='$pass1', datetime='$curDate' WHERE email='$email'");
+
+        $q_del_temp = $koneksi->query("DELETE FROM reset_pw_temp WHERE email='$email'");
+
+        header('Location: ../../index.php?page=login&sukses=Selamat, password anda berhasil di update!');
+      }
+    }
+  }
+}
+// END OF RESET PASSWORD ====================================================================================
