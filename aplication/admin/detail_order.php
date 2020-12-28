@@ -1,160 +1,166 @@
 <?php
-require_once "header.php";
+session_start();
+if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
+  require_once "header.php";
 ?>
-<!-- Begin Page Content -->
-<div class="container-fluid">
+  <!-- Begin Page Content -->
+  <div class="container-fluid">
 
-  <!-- Page Heading -->
-  <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Detail Order</h1>
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+      <h1 class="h3 mb-0 text-gray-800">Detail Order</h1>
 
-    <nav aria-label="breadcrumb shadow">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Detail Order</li>
-      </ol>
-    </nav>
-  </div>
-
-  <!--Start Form-->
-  <div class="card">
-    <div class="card-header">
-      <h4 class="card-title">Detail Order</h4>
-      <a href="order.php" class="btn btn-secondary mr-1 mb-1"><i class="fas fa-arrow-left"></i> Kembali</a>
+      <nav aria-label="breadcrumb shadow">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Detail Order</li>
+        </ol>
+      </nav>
     </div>
-    <div class="card-content">
-      <div class="card-body">
-        <form class="form form-horizontal" action="" method="POST">
-          <div class="form-body">
-            <input type="hidden" name="id" value="">
 
-            <div class="row">
-              <div class="col-md-2">
-                <label>Nama Layanan</label>
+    <!--Start Form-->
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Detail Order</h4>
+        <a href="order.php" class="btn btn-secondary mr-1 mb-1"><i class="fas fa-arrow-left"></i> Kembali</a>
+      </div>
+      <div class="card-content">
+        <div class="card-body">
+          <form class="form form-horizontal" action="" method="POST">
+            <div class="form-body">
+              <input type="hidden" name="id" value="">
+
+              <div class="row">
+                <div class="col-md-2">
+                  <label>Nama Layanan</label>
+                </div>
+                <div class="col-md-5 form-group">
+                  <input type="text" name="nama_layanan" id="nama_layanan" class="form-control" value="" disabled>
+                </div>
               </div>
-              <div class="col-md-5 form-group">
-                <input type="text" name="nama_layanan" id="nama_layanan" class="form-control" value="" disabled>
+
+              <div class="row">
+                <div class="col-md-2">
+                  <label>Order Status</label>
+                </div>
+                <div class="col-md-5 form-group">
+                  <select name="order_status" id="order_status" class="form-control">
+                    <option value="">pencucian</option>
+                    <option value="">selesai</option>
+                    <option value="">dst</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-2">
+                  <label>Order Date</label>
+                </div>
+                <div class="col-md-5 form-group">
+                  <input type="text" name="order_date" id="order_date" class="form-control" value="" disabled>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-2">
+                  <label>Harga</label>
+                </div>
+                <div class="col-md-5 form-group">
+                  <input type="text" name="harga" id="harga" class="form-control" value="" disabled>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-2">
+                  <label>Merk</label>
+                </div>
+                <div class="col-md-5 form-group">
+                  <input type="text" name="merk" id="merk" class="form-control" value="" disabled>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-2">
+                  <label>Ukuran</label>
+                </div>
+                <div class="col-md-5 form-group">
+                  <input type="text" name="ukuran" id="ukuran" class="form-control" value="" disabled>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-2">
+                  <label>Warna</label>
+                </div>
+                <div class="col-md-5 form-group">
+                  <input type="text" name="warna" id="warna" class="form-control" value="" disabled>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-2">
+                  <label>Tanggal Ambil Barang</label>
+                </div>
+                <div class="col-md-5 form-group">
+                  <input type="datetime-local" name="tanggal_pick" id="tanggal_pick" class="form-control" value="">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-2">
+                  <label>Lokasi</label>
+                </div>
+                <div class="col-md-5 form-group">
+                  <input type="text" name="lokasi" id="lokasi" class="form-control" value="" disabled>
+                </div>
+              </div>
+
+              <hr>
+
+              <div class="row">
+                <div class="col-md-2">
+                  <label>Nama Pelanggan</label>
+                </div>
+                <div class="col-md-5 form-group">
+                  <input type="text" name="nama_pelanggan" id="nama_pelanggan" class="form-control" value="" disabled>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-2">
+                  <label>Email</label>
+                </div>
+                <div class="col-md-5 form-group">
+                  <input type="text" name="email" id="email" class="form-control" value="" disabled>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-2">
+                  <label>Nomor Hp</label>
+                </div>
+                <div class="col-md-5 form-group">
+                  <input type="text" name="nomor_hp" id="nomor_hp" class="form-control" value="" disabled>
+                </div>
+              </div>
+
+
+              <div class="col-sm-12 d-flex justify-content-end">
+                <button type="submit" class="btn btn-primary mr-1 mb-1" name="detail_order">Simpan</button>
+                <a href="order.php" class="btn btn-light-secondary mr-1 mb-1">Batal</a>
               </div>
             </div>
-
-            <div class="row">
-              <div class="col-md-2">
-                <label>Order Status</label>
-              </div>
-              <div class="col-md-5 form-group">
-                <select name="order_status" id="order_status" class="form-control">
-                  <option value="">pencucian</option>
-                  <option value="">selesai</option>
-                  <option value="">dst</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-md-2">
-                <label>Order Date</label>
-              </div>
-              <div class="col-md-5 form-group">
-                <input type="text" name="order_date" id="order_date" class="form-control" value="" disabled>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-md-2">
-                <label>Harga</label>
-              </div>
-              <div class="col-md-5 form-group">
-                <input type="text" name="harga" id="harga" class="form-control" value="" disabled>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-md-2">
-                <label>Merk</label>
-              </div>
-              <div class="col-md-5 form-group">
-                <input type="text" name="merk" id="merk" class="form-control" value="" disabled>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-md-2">
-                <label>Ukuran</label>
-              </div>
-              <div class="col-md-5 form-group">
-                <input type="text" name="ukuran" id="ukuran" class="form-control" value="" disabled>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-md-2">
-                <label>Warna</label>
-              </div>
-              <div class="col-md-5 form-group">
-                <input type="text" name="warna" id="warna" class="form-control" value="" disabled>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-md-2">
-                <label>Tanggal Ambil Barang</label>
-              </div>
-              <div class="col-md-5 form-group">
-                <input type="datetime-local" name="tanggal_pick" id="tanggal_pick" class="form-control" value="">
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-md-2">
-                <label>Lokasi</label>
-              </div>
-              <div class="col-md-5 form-group">
-                <input type="text" name="lokasi" id="lokasi" class="form-control" value="" disabled>
-              </div>
-            </div>
-
-            <hr>
-
-            <div class="row">
-              <div class="col-md-2">
-                <label>Nama Pelanggan</label>
-              </div>
-              <div class="col-md-5 form-group">
-                <input type="text" name="nama_pelanggan" id="nama_pelanggan" class="form-control" value="" disabled>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-md-2">
-                <label>Email</label>
-              </div>
-              <div class="col-md-5 form-group">
-                <input type="text" name="email" id="email" class="form-control" value="" disabled>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-md-2">
-                <label>Nomor Hp</label>
-              </div>
-              <div class="col-md-5 form-group">
-                <input type="text" name="nomor_hp" id="nomor_hp" class="form-control" value="" disabled>
-              </div>
-            </div>
-
-
-            <div class="col-sm-12 d-flex justify-content-end">
-              <button type="submit" class="btn btn-primary mr-1 mb-1" name="detail_order">Simpan</button>
-              <a href="order.php" class="btn btn-light-secondary mr-1 mb-1">Batal</a>
-            </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
 
-</div>
-<!-- /.container-fluid -->
+  </div>
+  <!-- /.container-fluid -->
 <?php
-require_once "footer.php";
+  require_once "footer.php";
+} else {
+  header("Location: login.php");
+  exit();
+}
 ?>

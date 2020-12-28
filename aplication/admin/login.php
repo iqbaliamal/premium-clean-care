@@ -30,11 +30,14 @@
 						<h3 class="mb-5 text-center text-bold">SIGN IN</h3>
 
 						<!-- ALERT -->
-						<div class="alert alert-danger" role="alert">
-							Get alert danger
-						</div>
+						<?php if (isset($_GET['error'])) { ?>
+							<div class="alert alert-danger" role="alert">
+								<?php echo $_GET['error'] ?>
+							</div>
+						<?php } ?>
 						<!-- END OF ALERT -->
 
+						<p>username : admin | password : adminxyz</p>
 						<form action="fungsi/auth.php" method="POST">
 							<div class="form-group">
 								<input type="text" name="username" class="form-control" placeholder="Username or Email">
