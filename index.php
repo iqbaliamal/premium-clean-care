@@ -23,9 +23,9 @@ if (isset($_GET['page'])) {
     case 'forgot':
       include "aplication/auth/lupa_password.php";
       break;
-      // case 'order':
-      //   include "order.php";
-      //   break;
+    case 'confirm':
+      include "aplication/auth/confirm_email.php";
+      break;
       // case 'order_status':
       //   include "order_status.php";
       //   break;

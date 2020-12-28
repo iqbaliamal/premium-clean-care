@@ -81,21 +81,29 @@
     </div>
   </header><!-- End Header -->
 
-  <main id="main" class="container mt-4">
+  <main id="main" class="container">
     <!-- ======= Breadcrumbs ======= -->
-    <section id="breadcrumbs" class="breadcrumbs">
+    <section id="breadcrumbs" class="breadcrumbs mb-3">
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Portfolio Details</h2>
+          <h2>Detail Layanan</h2>
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li>Portfolio Details</li>
+            <li>Detail Layanan</li>
           </ol>
         </div>
 
       </div>
     </section><!-- End Breadcrumbs -->
+
+    <div class="portfolio-details-container mb-2">
+      <div class="owl-carousel portfolio-details-carousel">
+        <img src="../../assets/img/portfolio/portfolio-details-1.jpg" class="img-fluid" alt="">
+        <img src="../../assets/img/portfolio/portfolio-details-2.jpg" class="img-fluid" alt="">
+        <img src="../../assets/img/portfolio/portfolio-details-3.jpg" class="img-fluid" alt="">
+      </div>
+    </div>
 
     <h3>Keterangan Layanan</h3>
     <ol type="1">

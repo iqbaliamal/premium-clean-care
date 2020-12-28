@@ -24,27 +24,27 @@
       </div>
 
       <div class="row">
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+
+        <div class="col-lg-4 col-md-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
           <div class="icon-box">
-            <img src="assets/img/s1.jpeg" class="img-fluid" alt="">
+            <img src="assets/img/s1.jpeg" class="img-fluid mb-3" alt="">
             <h4><a href="aplication/public/detail_transaksi.php">FAST CLEAN</a></h4>
           </div>
         </div>
 
         <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
           <div class="icon-box">
-            <img src="assets/img/s2.jpeg" class="img-fluid" alt="">
+            <img src="assets/img/s2.jpeg" class="img-fluid mb-3" alt="">
             <h4><a href="aplication/public/detail_transaksi.php">DEEP CLEAN</a></h4>
           </div>
         </div>
 
         <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
           <div class="icon-box">
-            <img src="assets/img/T2.jpeg" class="img-fluid" alt="">
+            <img src="assets/img/T2.jpeg" class="img-fluid mb-3" alt="">
             <h4><a href="aplication/public/detail_transaksi.php">HAT CLEAN</a></h4>
           </div>
         </div>
-
       </div>
 
     </div>
@@ -63,10 +63,12 @@
         <div class="col-lg-12 d-flex justify-content-center">
           <ul id="portfolio-flters">
             <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-sepatu">Sepatu</li>
-            <li data-filter=".filter-tas">Tas</li>
-            <li data-filter=".filter-topi">Topi</li>
-            <li data-filter=".filter-sepatu-wanita">Sepatu Wanita</li>
+            <?php
+            $query = $koneksi->query("SELECT * FROM jenis_layanan ORDER BY id_jenis_layanan ASC");
+            while ($data = mysqli_fetch_assoc($query)) {
+            ?>
+              <li data-filter=".filter-<?= $data['jenis_layanan']; ?>"><?= $data['jenis_layanan']; ?></li>
+            <?php } ?>
           </ul>
         </div>
       </div>

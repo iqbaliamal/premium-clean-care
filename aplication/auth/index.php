@@ -1,8 +1,20 @@
   <!-- Form Login Section -->
   <section>
     <div class="mt-5 container">
-      <form action="#" class="form-group login border">
+      <form action="auth.php" method="POST" class="form-group login border">
         <h2 class="text-center mb-3">LOGIN</h2>
+        <!-- ALERT -->
+        <?php if (isset($_GET['error'])) { ?>
+          <div class="alert alert-danger" role="alert">
+            <?php echo $_GET['error'] ?>
+          </div>
+        <?php } ?>
+        <?php if (isset($_GET['sukses'])) { ?>
+          <div class="alert alert-success" role="alert">
+            <?php echo $_GET['sukses'] ?>
+          </div>
+        <?php } ?>
+        <!-- END OF ALERT -->
         <label for="email">Email</label>
         <input type="email" id="email" class="form-control" />
         <label for="password">Password</label>
