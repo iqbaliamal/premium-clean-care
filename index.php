@@ -29,11 +29,11 @@ if (isset($_GET['page'])) {
     case 'confirm':
       include "aplication/auth/confirm_email.php";
       break;
-      // case 'order_status':
-      //   include "order_status.php";
-      //   break;
-      // case 'profile':
-      //   include "profile.php";
+    case 'resetpw':
+      include "aplication/auth/reset.php";
+      break;
+      // case 'forgot':
+      //   include "aplication/auth/lupa_password.php";
       //   break;
       // case 'testimoni':
       //   include "testimoni.php";
