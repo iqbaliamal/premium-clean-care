@@ -82,7 +82,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <form action="" method="POST">
+          <form action="fungsi/fungsi_admin.php" method="POST">
             <div class="modal-body">
 
               <div class="form-group">
