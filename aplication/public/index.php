@@ -28,21 +28,21 @@
         <div class="col-lg-4 col-md-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
           <div class="icon-box">
             <img src="assets/img/s1.jpeg" class="img-fluid mb-3" alt="">
-            <h4><a href="aplication/public/detail_transaksi.php">FAST CLEAN</a></h4>
+            <h4><a href="index.php?page=detail">FAST CLEAN</a></h4>
           </div>
         </div>
 
         <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
           <div class="icon-box">
             <img src="assets/img/s2.jpeg" class="img-fluid mb-3" alt="">
-            <h4><a href="aplication/public/detail_transaksi.php">DEEP CLEAN</a></h4>
+            <h4><a href="index.php?page=detail">DEEP CLEAN</a></h4>
           </div>
         </div>
 
         <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
           <div class="icon-box">
             <img src="assets/img/T2.jpeg" class="img-fluid mb-3" alt="">
-            <h4><a href="aplication/public/detail_transaksi.php">HAT CLEAN</a></h4>
+            <h4><a href="index.php?page=detail">HAT CLEAN</a></h4>
           </div>
         </div>
       </div>
@@ -83,7 +83,7 @@
                 <h4>Layanan 1</h4>
                 <p>Jenis layanan</p>
                 <div class="portfolio-links">
-                  <a href="aplication/public/portfolio-details.php" title="More Details"><i class="bx bx-link"></i></a>
+                  <a href="index.php?page=detail" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
             </div>
@@ -98,7 +98,7 @@
                 <h4>Layanan 1</h4>
                 <p>Rp 30.000</p>
                 <div class="portfolio-links">
-                  <a href="aplication/public/portfolio-details.php" title="More Details"><i class="bx bx-link"></i></a>
+                  <a href="index.php?page=detail" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
             </div>
@@ -113,7 +113,7 @@
                 <h4>Layanan 1</h4>
                 <p>Rp 25.000</p>
                 <div class="portfolio-links">
-                  <a href="aplication/public/portfolio-details.php" title="More Details"><i class="bx bx-link"></i></a>
+                  <a href="index.php?page=detail" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
             </div>
@@ -128,7 +128,7 @@
                 <h4>Layanan 1</h4>
                 <p>Jenis layanan</p>
                 <div class="portfolio-links">
-                  <a href="aplication/public/portfolio-details.php" title="More Details"><i class="bx bx-link"></i></a>
+                  <a href="index.php?page=detail" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
             </div>
