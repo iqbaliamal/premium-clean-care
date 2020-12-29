@@ -1,3 +1,15 @@
+<?php
+      if(isset($_GET['pesan'])){
+        $pesan = $_GET['pesan'];
+        if ($pesan == "berhasil") {
+          ?>
+          <div class="alert alert-success">
+          <strong>Success!</strong>Anda berhasil login.
+          </div>
+          <?php
+        }
+      }
+      ?>
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex align-items-center justify-content-center">
   <div class="container" data-aos="fade-up">

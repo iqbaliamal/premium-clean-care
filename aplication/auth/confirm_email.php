@@ -19,3 +19,5 @@ if (isset($_GET['token'])) {
 } else {
   header("location: index.php?page=register&error=Token tidak valid!");
 }
+
+?>

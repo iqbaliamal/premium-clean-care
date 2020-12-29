@@ -1,26 +1,29 @@
   <!-- Form Login Section -->
   <section>
     <div class="mt-5 container">
-      <form action="auth.php" method="POST" class="form-group login border">
+      <form action="aplication/auth/login_process.php" method="POST" class="form-group login border">
         <h2 class="text-center mb-3">LOGIN</h2>
         <!-- ALERT -->
-        <?php if (isset($_GET['error'])) { ?>
-          <div class="alert alert-danger" role="alert">
-            <?php echo $_GET['error'] ?>
-          </div>
-        <?php } ?>
-        <?php if (isset($_GET['sukses'])) { ?>
-          <div class="alert alert-success" role="alert">
-            <?php echo $_GET['sukses'] ?>
-          </div>
-        <?php } ?>
+        <?php
+                  if( isset($_GET['pesan'])) {
+                    $pesan = $_GET['pesan'];
+                    if ($pesan == "gagal") {
+                      ?>
+                      <div class="alert alert-danger">
+                        <strong>Danger!</strong> Anda Gagal Login Coba Cek Email atau Password Anda.
+                      </div>
+                      <?php 
+                    }
+                  } 
+                  ?>
+        
         <!-- END OF ALERT -->
         <label for="email">Email</label>
         <input type="email" id="email" class="form-control" />
         <label for="password">Password</label>
         <input type="password" name="" id="password" class="form-control" />
         <input type="checkbox" name="" id="remember" /><label for="remember" class="ml-1">Remember me</label><br />
-        <button type="submit">Login</button>
+        <button type="submit" name="login">Login</button>
         <a href="index.php?page=register" class="ml-2 text-decoration-none text-dark">Register</a><br />
         <a href="index.php?page=forgot" class="text-decoration-none">Lupa Password?</a>
       </form>
