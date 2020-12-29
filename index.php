@@ -32,9 +32,9 @@ if (isset($_GET['page'])) {
     case 'resetpw':
       include "aplication/auth/reset.php";
       break;
-      // case 'forgot':
-      //   include "aplication/auth/lupa_password.php";
-      //   break;
+    case 'detail':
+      include "aplication/public/detail_transaksi.php";
+      break;
       // case 'testimoni':
       //   include "testimoni.php";
       //   break;

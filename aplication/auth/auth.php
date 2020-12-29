@@ -148,7 +148,7 @@ your account and change your security password as someone may have guessed it.</
     //     echo "<div class='error'>
     // <p>An email has been sent to you with instructions on how to reset your password.</p>
     // </div><br /><br /><br />";
-    header('Location: ../../index.php?page=forgot&sukses=Email recovery account telah dikirim, silahkan cek email anda untuk reset password!');
+    header('Location: ../../index.php?page=forgot&sukses=Account Recovery telah dikirim, silahkan cek email anda untuk reset password!');
   }
 } else {
   header('Location: ../../index.php?page=forgot&error=Masukkan email terlebih dahulu!');
