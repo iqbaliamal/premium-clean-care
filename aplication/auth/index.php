@@ -22,7 +22,7 @@
         <input type="email" id="email" name="email" class="form-control" />
         <label for="password">Password</label>
         <input type="password" name="password" id="password" class="form-control" />
-        <input type="checkbox" name="" id="remember" /><label for="remember" class="ml-1">Remember me</label><br />
+        <!-- <input type="checkbox" name="" id="remember" /><label for="remember" class="ml-1">Remember me</label><br /> -->
         <button type="submit" name="login">Login</button>
         <a href="index.php?page=register" class="ml-2 text-decoration-none text-dark">Register</a><br />
         <a href="index.php?page=forgot" class="text-decoration-none">Lupa Password?</a>
