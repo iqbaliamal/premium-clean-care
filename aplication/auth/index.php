@@ -5,18 +5,18 @@
         <h2 class="text-center mb-3">LOGIN</h2>
         <!-- ALERT -->
         <?php
-                  if( isset($_GET['pesan'])) {
-                    $pesan = $_GET['pesan'];
-                    if ($pesan == "gagal") {
-                      ?>
-                      <div class="alert alert-danger">
-                        <strong>Danger!</strong> Anda Gagal Login Coba Cek Email atau Password Anda.
-                      </div>
-                      <?php 
-                    }
-                  } 
-                  ?>
-        
+        if (isset($_GET['pesan'])) {
+          $pesan = $_GET['pesan'];
+          if ($pesan == "gagal") {
+        ?>
+            <div class="alert alert-danger">
+              <strong>Danger!</strong> Anda Gagal Login Coba Cek Email atau Password Anda.
+            </div>
+        <?php
+          }
+        }
+        ?>
+
         <!-- END OF ALERT -->
         <label for="email">Email</label>
         <input type="email" id="email" class="form-control" />
