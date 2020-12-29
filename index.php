@@ -20,6 +20,9 @@ if (isset($_GET['page'])) {
     case 'register':
       include "aplication/auth/register.php";
       break;
+      case 'profile':
+        include "aplication/public/profile_dasboard.php";
+        break;
     case 'forgot':
       include "aplication/auth/lupa_password.php";
       break;
