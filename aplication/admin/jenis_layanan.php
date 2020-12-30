@@ -130,6 +130,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
               <div class="form-group">
                 <label>Jenis Layanan</label>
                 <input type="text" name="jenis_layanan" id="jenis_layanan" class="form-control" placeholder="Jenis Layanan" required>
+                <span style="color: red;">jangan gunakan spasi harap gunakan underscore ( _ ) atau dash ( - )</span>
               </div>
 
             </div>

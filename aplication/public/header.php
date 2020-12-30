@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -82,5 +85,6 @@
           <li><a href="#ceknota">CEK NOTA</a></li>
         </ul>
       </nav><!-- .nav-menu -->
+      <a href="index.php?page=login" class="get-started-btn">Login</a>
     </div>
   </header><!-- End Header -->

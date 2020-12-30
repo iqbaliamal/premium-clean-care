@@ -13,14 +13,14 @@ if (isset($_POST['addLayanan'])) {
 
   //cek dulu jika ada gambar produk jalankan coding ini
   if ($gambar != "") {
-    $ekstensi_diperbolehkan = array('png', 'jpg'); //ekstensi file gambar yang bisa diupload 
+    $ekstensi_diperbolehkan = array('png', 'jpg', 'jpeg'); //ekstensi file gambar yang bisa diupload 
     $x = explode('.', $gambar); //memisahkan nama file dengan ekstensi yang diupload
     $ekstensi = strtolower(end($x));
     $file_tmp = $_FILES['gambar']['tmp_name'];
     $angka_acak     = rand(1, 999);
     $nama_gambar_baru = $angka_acak . '-' . $gambar; //menggabungkan angka acak dengan nama file sebenarnya
     if (in_array($ekstensi, $ekstensi_diperbolehkan) === true) {
-      move_uploaded_file($file_tmp, '../img/gambar_layanan/' . $nama_gambar_baru); //memindah file gambar ke folder gambar layanan
+      move_uploaded_file($file_tmp, '../../../assets/img/gambar_layanan/' . $nama_gambar_baru); //memindah file gambar ke folder gambar layanan
       // jalankan query INSERT untuk menambah data ke database pastikan sesuai urutan (id tidak perlu karena dibikin otomatis)
       $query = $koneksi->query("INSERT INTO layanan SET id_jenis_layanan='$jenis_layanan', nama_layanan='$nama_layanan', harga_layanan='$harga', gambar='$nama_gambar_baru'");
       // periska query apakah ada error
@@ -77,14 +77,14 @@ if (isset($_POST['editLayanan'])) {
   $gambar         = $_FILES['img']['name'];
   //cek dulu jika merubah gambar produk jalankan coding ini
   if ($gambar != "") {
-    $ekstensi_diperbolehkan = array('png', 'jpg'); //ekstensi file gambar yang bisa diupload 
+    $ekstensi_diperbolehkan = array('png', 'jpg', 'jpeg'); //ekstensi file gambar yang bisa diupload 
     $x = explode('.', $gambar); //memisahkan nama file dengan ekstensi yang diupload
     $ekstensi = strtolower(end($x));
     $file_tmp = $_FILES['img']['tmp_name'];
     $angka_acak     = rand(1, 999);
     $nama_gambar_baru = $angka_acak . '-' . $gambar; //menggabungkan angka acak dengan nama file sebenarnya
     if (in_array($ekstensi, $ekstensi_diperbolehkan) === true) {
-      if (move_uploaded_file($file_tmp, '../img/gambar_layanan/' . $nama_gambar_baru)) { //memindah file gambar ke folder gambar layanan
+      if (move_uploaded_file($file_tmp, '../../../assets/img/gambar_layanan/' . $nama_gambar_baru)) { //memindah file gambar ke folder gambar layanan
         // jalankan query UPDATE berdasarkan ID layanan kita edit
         $query  = $koneksi->query("UPDATE layanan SET 
       id_jenis_layanan = '$id_jenis', 

@@ -1,15 +1,3 @@
-<?php
-      if(isset($_GET['pesan'])){
-        $pesan = $_GET['pesan'];
-        if ($pesan == "berhasil") {
-          ?>
-          <div class="alert alert-success">
-          <strong>Success!</strong>Anda berhasil login.
-          </div>
-          <?php
-        }
-      }
-      ?>
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex align-items-center justify-content-center">
   <div class="container" data-aos="fade-up">
@@ -37,27 +25,22 @@
 
       <div class="row">
 
-        <div class="col-lg-4 col-md-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-          <div class="icon-box">
-            <img src="assets/img/s1.jpeg" class="img-fluid mb-3" alt="">
-            <h4><a href="index.php?page=detail">FAST CLEAN</a></h4>
-          </div>
-        </div>
+        <!-- LAYANAN TERFAVORIT  ==== BELUM FIX ==== -->
+        <?php
+        //$qsql = $koneksi->query("SELECT id_layanan COUNT(id_layanan) AS best FROM order GROUP BY id_layanan LEFT JOIN layanan ON order.id_layanan=layanan.id_layanan ORDER BY best DESC LIMIT 3");
+        $query = $koneksi->query("SELECT * FROM layanan LEFT JOIN jenis_layanan ON layanan.id_jenis_layanan=jenis_layanan.id_jenis_layanan ORDER BY layanan.id_layanan ASC LIMIT 3");
+        while ($fav = mysqli_fetch_assoc($query)) {
 
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-          <div class="icon-box">
-            <img src="assets/img/s2.jpeg" class="img-fluid mb-3" alt="">
-            <h4><a href="index.php?page=detail">DEEP CLEAN</a></h4>
+        ?>
+          <div class="col-lg-4 col-md-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box">
+              <img src="assets/img/gambar_layanan/<?= $fav['gambar']; ?>" class="img-fluid mb-3" alt="">
+              <h4><a href="index.php?page=detail"><?= $fav['nama_layanan']; ?></a></h4>
+            </div>
           </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
-          <div class="icon-box">
-            <img src="assets/img/T2.jpeg" class="img-fluid mb-3" alt="">
-            <h4><a href="index.php?page=detail">HAT CLEAN</a></h4>
-          </div>
-        </div>
+        <?php } ?>
       </div>
+      <!-- END OF LAYANAN TERFAVORIT -->
 
     </div>
   </section><!-- End Layanan Terfavorit Section -->
@@ -87,65 +70,29 @@
 
       <div class="row portfolio-container team" data-aos="fade-up" data-aos-delay="200">
 
-        <div class="col-lg-3 col-md-6 portfolio-item filter-sepatu">
-          <div class="member">
-            <div class="member-img portfolio-wrap">
-              <img src="assets/img/s1.jpeg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Layanan 1</h4>
-                <p>Jenis layanan</p>
-                <div class="portfolio-links">
-                  <a href="index.php?page=detail" title="More Details"><i class="bx bx-link"></i></a>
+        <?php
+        $q = $koneksi->query("SELECT * FROM layanan LEFT JOIN jenis_layanan ON layanan.id_jenis_layanan=jenis_layanan.id_jenis_layanan ORDER BY layanan.id_layanan ASC");
+        while ($row = mysqli_fetch_assoc($q)) {
+        ?>
+          <div class="col-lg-3 col-md-6 portfolio-item filter-<?= $row['jenis_layanan']; ?>">
+            <div class="member">
+              <div class="member-img portfolio-wrap">
+                <img src="assets/img/gambar_layanan/<?= $row['gambar']; ?>" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h4><?= $row['nama_layanan']; ?></h4>
+                  <p><?= $row['harga_layanan']; ?></p>
+                  <div class="portfolio-links">
+                    <a href="index.php?page=detail&idl=<?= $row['id_layanan']; ?>" title="More Details">
+                      <i class="ri-search-2-line"></i>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 portfolio-item filter-tas">
-          <div class="member">
-            <div class="member-img portfolio-wrap">
-              <img src="assets/img/t3.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Layanan 1</h4>
-                <p>Rp 30.000</p>
-                <div class="portfolio-links">
-                  <a href="index.php?page=detail" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 portfolio-item filter-topi">
-          <div class="member">
-            <div class="member-img portfolio-wrap">
-              <img src="assets/img/t2.jpeg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Layanan 1</h4>
-                <p>Rp 25.000</p>
-                <div class="portfolio-links">
-                  <a href="index.php?page=detail" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 portfolio-item filter-sepatu-wanita">
-          <div class="member">
-            <div class="member-img portfolio-wrap">
-              <img src="assets/img/s3.jpeg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Layanan 1</h4>
-                <p>Jenis layanan</p>
-                <div class="portfolio-links">
-                  <a href="index.php?page=detail" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <?php
+        }
+        ?>
 
       </div>
 
