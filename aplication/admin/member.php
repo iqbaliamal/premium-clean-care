@@ -49,17 +49,29 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
               </tr>
             </tfoot>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td hidden>idlayanan</td>
-                <td>Budi</td>
-                <td>budi@member.com</td>
-                <td>08123456780</td>
-                <td>
-                  <span class="badge badge-success">Aktif</span>
-                  <span class="badge badge-danger">Tidak Aktif</span>
-                </td>
-              </tr>
+              <?php
+              $query = $koneksi->query("SELECT * FROM member ORDER BY id_member ASC");
+              $no = 1;
+              while ($data = mysqli_fetch_assoc($query)) {
+              ?>
+                <tr>
+                  <td><?= $no++; ?></td>
+                  <td hidden><?= $data['id_member']; ?></td>
+                  <td><?= $data['nama_member']; ?></td>
+                  <td><?= $data['email']; ?></td>
+                  <td><?= $data['nomor_hp']; ?></td>
+                  <td>
+                    <?php
+                    $status = $data['is_active'];
+                    if ($status == 1) {
+                    ?>
+                      <span class="badge badge-success">Aktif</span>
+                    <?php } else { ?>
+                      <span class="badge badge-danger">Belum verifikasi akun</span>
+                    <?php } ?>
+                  </td>
+                </tr>
+              <?php } ?>
             </tbody>
           </table>
         </div>
@@ -71,7 +83,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
       <div class="modal-dialog" role="document">
         <div class="modal-content">
 
-          <form action="" method="POST">
+          <form action="fungsi/fungsi_member.php" method="POST">
             <div class="modal-body">
               <input type="hidden" name="delete_id" id="delete_id">
               <h5> Apakah anda yakin akan menghapus data?</h5>

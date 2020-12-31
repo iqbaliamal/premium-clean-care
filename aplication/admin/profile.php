@@ -39,7 +39,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
               </div>
             <?php } ?>
             <!-- END OF ALERT -->
-            
+
             <?php
             $id = $_SESSION['id'];
             $query = $koneksi->query("SELECT * FROM admin WHERE id_admin='$id'");
@@ -47,11 +47,11 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
             ?>
 
             <form action="fungsi/fungsi_profile.php" method="POST">
-            <input type="text" name="id_admin" value="<?= $row['id_admin']; ?>" hidden>
+              <input type="text" name="id_admin" value="<?= $row['id_admin']; ?>" hidden>
               <!-- Form Group (username)-->
               <div class="form-group">
                 <label class="mb-1" for="inputUsername">Username</label>
-                <input class="form-control" id="inputUsername" type="text" name="username" value="<?= $row['username']; ?>" required />
+                <input class="form-control" id="inputUsername" type="text" name="username" value="<?= $row['username']; ?>" readonly />
               </div>
               <!-- Form Group (nama)-->
               <div class="form-group">
@@ -61,19 +61,19 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
               <!-- Form Group (email address)-->
               <div class="form-group">
                 <label class="mb-1" for="inputEmailAddress">Email address</label>
-                <input class="form-control" id="inputEmailAddress" type="email" name="email" placeholder="Email address" value="<?= $row['email']; ?>" required />
+                <input class="form-control" id="inputEmailAddress" type="email" name="email" placeholder="Email address" value="<?= $row['email']; ?>" readonly />
               </div>
               <!-- Form Row-->
               <div class="form-row">
                 <!-- Form Group New Password-->
                 <div class="form-group col-md-6">
                   <label class="mb-1" for="NewPassword">New Password</label>
-                  <input class="form-control" id="NewPassword" type="password" name="password1" placeholder="New Password" value="" />
+                  <input class="form-control" id="NewPassword" type="password" name="password1" placeholder="New Password" />
                 </div>
                 <!-- Form Group Retype Password-->
                 <div class="form-group col-md-6">
                   <label class="mb-1" for="retype">Retype Password</label>
-                  <input class="form-control" id="retype" type="password" name="retypePassword" placeholder="Retype Password" value="" />
+                  <input class="form-control" id="retype" type="password" name="retypePassword" placeholder="Retype Password" />
                 </div>
               </div>
               <!-- Save changes button-->

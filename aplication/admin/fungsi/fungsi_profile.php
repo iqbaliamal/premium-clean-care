@@ -12,7 +12,17 @@ if (isset($_POST['simpan'])) {
   $password = htmlspecialchars($_POST['password1']);
   $password2 = htmlspecialchars($_POST['retypePassword']);
 
-  if (isset($password, $password2)) {
+  if (empty($password && $password2)) {
+    $query = $koneksi->query("UPDATE admin SET nama_admin='$nama_admin', username='$username', email='$email' WHERE id_admin='$id'");
+    if (!$query) {
+      header("location: ../profile.php?error=Profile anda gagal di ubah!");
+      //DEBUG
+      die("Query gagal dijalankan: " . mysqli_errno($koneksi) .
+        " - " . mysqli_error($koneksi));
+    } else {
+      header("location: ../profile.php?sukses=Profile anda berhasil di ubah!");
+    };
+  } else {
     if ($password !== $password2) {
       header("location: ../profile.php?error=Password tidak sesuai");
     } else {
@@ -24,22 +34,8 @@ if (isset($_POST['simpan'])) {
         die("Query gagal dijalankan: " . mysqli_errno($koneksi) .
           " - " . mysqli_error($koneksi));
       } else {
-        //tampil alert dan akan redirect ke halaman index.php
-        //silahkan ganti index.php sesuai halaman yang akan dituju
         header("location: ../profile.php?sukses=Profile anda berhasil di ubah!");
       };
-    };
-  } else {
-    $query = $koneksi->query("UPDATE admin SET nama_admin='$nama_admin', username='$username', email='$email' WHERE id_admin='$id'");
-    if (!$query) {
-      header("location: ../profile.php?error=Profile anda gagal di ubah!");
-      //DEBUG
-      die("Query gagal dijalankan: " . mysqli_errno($koneksi) .
-        " - " . mysqli_error($koneksi));
-    } else {
-      //tampil alert dan akan redirect ke halaman index.php
-      //silahkan ganti index.php sesuai halaman yang akan dituju
-      header("location: ../profile.php?sukses=Profile anda berhasil di ubah!");
     };
   };
 };
