@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "../../koneksi.php";
+require_once "../../../config/koneksi.php";
 
 // TAMBAH DATA ADMIN
 if (isset($_POST['addAdmin'])) {
@@ -25,11 +25,6 @@ if (isset($_POST['addAdmin'])) {
       //tampil alert dan akan redirect ke halaman index.php
       //silahkan ganti index.php sesuai halaman yang akan dituju
       header("location: ../admin.php?sukses=Data Berhasil Di Tambahkan");
-
-      //SWEAT ALERT
-      // $_SESSION['status'] = "Success!";
-      // $_SESSION['status_code'] = "success";
-      // $_SESSION['status_text'] = "Data Anda Berhasil Di Tambahkan!";
     }
   }
 };
@@ -43,9 +38,6 @@ if (isset($_POST['deleteAdmin'])) {
 
   if ($query) {
     header("location: ../admin.php?sukses=Data Berhasil Di Hapus");
-    // $_SESSION['status'] = "Success!";
-    // $_SESSION['status_code'] = "success";
-    // $_SESSION['status_text'] = "Data Anda Berhasil Di Hapus!";
   } else {
     header("location: ../admin.php");
     $_SESSION['status'] = "Failed!";

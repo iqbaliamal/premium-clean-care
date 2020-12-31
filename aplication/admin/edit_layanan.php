@@ -69,7 +69,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
                 <div class="col-md-5 form-group">
                   <div class="col-md-5 form-group">
                     <div class="col-md-4 pb-3">
-                      <img src="img/gambar_layanan/<?php echo $data['gambar']; ?>" style="width: 200px;border-radius:10px;">
+                      <img src="../../assets/img/gambar_layanan/<?php echo $data['gambar']; ?>" style="width: 200px;border-radius:10px;">
                       <?php
                       // $idhapus = $_GET['id'];
                       ?>

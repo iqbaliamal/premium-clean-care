@@ -79,7 +79,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
                   <td><?= $data['jenis_layanan']; ?></td>
                   <td><?= $data['nama_layanan']; ?></td>
                   <td>Rp. <?= $data['harga_layanan']; ?></td>
-                  <td style="text-align: center;"><img src="img/gambar_layanan/<?php echo $data['gambar']; ?>" style="width: 120px;"></td>
+                  <td style="text-align: center;"><img src="../../assets/img/gambar_layanan/<?php echo $data['gambar']; ?>" style="width: 120px;"></td>
                   <td>
                     <a href="edit_layanan.php?&id=<?= $data['id_layanan'] ?>" class="editbtn border-0 btn-transition btn btn-outline-warning" type="button"> <i class="fa fa-edit"></i> </a>
                     <button class="deletebtn border-0 btn-transition btn btn-outline-danger" type="button"> <i class="fa fa-trash"></i> </button>

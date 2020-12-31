@@ -31,12 +31,16 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
         </button>
 
         <!-- ALERT -->
-        <div class="alert alert-success" role="alert">
-          Get alert sukses
-        </div>
-        <div class="alert alert-danger" role="alert">
-          Get alert danger
-        </div>
+        <?php if (isset($_GET['sukses'])) { ?>
+          <div class="alert alert-success" role="alert">
+            <?php echo $_GET['sukses'] ?>
+          </div>
+        <?php } ?>
+        <?php if (isset($_GET['error'])) { ?>
+          <div class="alert alert-danger" role="alert">
+            <?php echo $_GET['error'] ?>
+          </div>
+        <?php } ?>
         <!-- END OF ALERT -->
 
         <div class="table-responsive">
@@ -60,16 +64,22 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
               </tr>
             </tfoot>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td hidden>id testimoni</td>
-                <td>@Budi2020</td>
-                <td>ini testimoni</td>
-                <td>
-                  <button class="editbtn border-0 btn-transition btn btn-outline-warning" type="button"> <i class="fa fa-edit"></i> </button>
-                  <button class="deletebtn border-0 btn-transition btn btn-outline-danger" type="button"> <i class="fa fa-trash"></i> </button>
-                </td>
-              </tr>
+              <?php
+              $query = $koneksi->query("SELECT * FROM testimoni ORDER BY id_testimoni ASC");
+              $no = 1;
+              while ($data = mysqli_fetch_assoc($query)) {
+              ?>
+                <tr>
+                  <td><?= $no++; ?></td>
+                  <td hidden><?= $data['id_testimoni']; ?></td>
+                  <td><?= $data['akun_ig']; ?></td>
+                  <td><?= $data['testimoni']; ?></td>
+                  <td>
+                    <button class="editbtn border-0 btn-transition btn btn-outline-warning" type="button"> <i class="fa fa-edit"></i> </button>
+                    <button class="deletebtn border-0 btn-transition btn btn-outline-danger" type="button"> <i class="fa fa-trash"></i> </button>
+                  </td>
+                </tr>
+              <?php } ?>
             </tbody>
           </table>
         </div>
@@ -86,12 +96,12 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <form action="" method="POST">
+          <form action="fungsi/fungsi_testimoni.php" method="POST">
             <div class="modal-body">
 
               <div class="form-group">
                 <label>akun IG</label>
-                <input type="text" name="akun IG" class="form-control" placeholder="akun IG" required>
+                <input type="text" name="akun_ig" class="form-control" placeholder="akun IG" required>
               </div>
 
               <div class="form-group">
@@ -121,14 +131,14 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <form action="" method="POST">
+          <form action="fungsi/fungsi_testimoni.php" method="POST">
             <div class="modal-body">
 
               <input type="hidden" name="update_id" id="update_id">
 
               <div class="form-group">
                 <label>akun IG</label>
-                <input type="text" name="akun IG" id="akunIG" class="form-control" placeholder="akun IG" required>
+                <input type="text" name="akun_ig" id="akunIG" class="form-control" placeholder="akun IG" required>
               </div>
 
               <div class="form-group">
@@ -139,7 +149,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="submit" name="editOrderStatus" class="btn btn-primary">Update</button>
+              <button type="submit" name="editTestimoni" class="btn btn-primary">Update</button>
             </div>
           </form>
 
@@ -155,14 +165,14 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
       <div class="modal-dialog" role="document">
         <div class="modal-content">
 
-          <form action="" method="POST">
+          <form action="fungsi/fungsi_testimoni.php" method="POST">
             <div class="modal-body">
               <input type="hidden" name="delete_id" id="delete_id">
               <h5> Apakah anda yakin akan menghapus data?</h5>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal"> Batal </button>
-              <button type="submit" name="deleteOrderStatus" class="btn btn-danger"> Hapus </button>
+              <button type="submit" name="deleteTestimoni" class="btn btn-danger"> Hapus </button>
             </div>
           </form>
 
@@ -185,7 +195,14 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
         //alert("you activate the event");
         $('.deletebtn').on('click', function() {
           $('#deleteData').modal('show');
-          // script disini
+          $tr = $(this).closest('tr');
+          var data = $tr.children("td").map(function() {
+            return $(this).text();
+          }).get();
+
+          console.log(data);
+
+          $('#delete_id').val(data[1]);
         });
       });
     });

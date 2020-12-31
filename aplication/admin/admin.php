@@ -31,12 +31,16 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
         </button>
 
         <!-- ALERT -->
-        <div class="alert alert-success" role="alert">
-          Get alert sukses
-        </div>
-        <div class="alert alert-danger" role="alert">
-          Get alert danger
-        </div>
+        <?php if (isset($_GET['sukses'])) { ?>
+          <div class="alert alert-success" role="alert">
+            <?php echo $_GET['sukses'] ?>
+          </div>
+        <?php } ?>
+        <?php if (isset($_GET['error'])) { ?>
+          <div class="alert alert-danger" role="alert">
+            <?php echo $_GET['error'] ?>
+          </div>
+        <?php } ?>
         <!-- END OF ALERT -->
 
         <div class="table-responsive">
@@ -58,14 +62,20 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
               </tr>
             </tfoot>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td hidden>id admin</td>
-                <td>Budi</td>
-                <td>
-                  <button class="deletebtn border-0 btn-transition btn btn-outline-danger" type="button"> <i class="fa fa-trash"></i> </button>
-                </td>
-              </tr>
+              <?php
+              $query = $koneksi->query("SELECT * FROM admin ORDER BY id_admin ASC");
+              $no = 1;
+              while ($data = mysqli_fetch_assoc($query)) {
+              ?>
+                <tr>
+                  <td><?= $no++; ?></td>
+                  <td hidden><?= $data['id_admin']; ?></td>
+                  <td><?= $data['nama_admin']; ?></td>
+                  <td>
+                    <button class="deletebtn border-0 btn-transition btn btn-outline-danger" type="button"> <i class="fa fa-trash"></i> </button>
+                  </td>
+                </tr>
+              <?php } ?>
             </tbody>
           </table>
         </div>
@@ -122,14 +132,14 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
       <div class="modal-dialog" role="document">
         <div class="modal-content">
 
-          <form action="" method="POST">
+          <form action="fungsi/fungsi_admin.php" method="POST">
             <div class="modal-body">
               <input type="hidden" name="delete_id" id="delete_id">
               <h5> Apakah anda yakin akan menghapus data?</h5>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal"> Batal </button>
-              <button type="submit" name="deleteOrderStatus" class="btn btn-danger"> Hapus </button>
+              <button type="submit" name="deleteAdmin" class="btn btn-danger"> Hapus </button>
             </div>
           </form>
 
@@ -152,7 +162,14 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
         //alert("you activate the event");
         $('.deletebtn').on('click', function() {
           $('#deleteData').modal('show');
-          // script disini
+          $tr = $(this).closest('tr');
+          var data = $tr.children("td").map(function() {
+            return $(this).text();
+          }).get();
+
+          console.log(data);
+
+          $('#delete_id').val(data[1]);
         });
       });
     });
