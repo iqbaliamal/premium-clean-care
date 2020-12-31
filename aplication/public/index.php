@@ -103,56 +103,25 @@
     <div class="container" data-aos="zoom-in">
 
       <div class="owl-carousel testimonials-carousel">
+        
+      <?php
+        $query = $koneksi->query("SELECT * FROM testimoni ORDER BY id_testimoni ASC");
+        $NO = 1;
+        WHILE ($data = mysqli_fetch_assoc($query)) {
+        ?>
 
         <div class="testimonial-item">
+        
           <p>
             <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-            Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium
-            quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+            <?= $data['testimoni']; ?>
             <i class="bx bxs-quote-alt-right quote-icon-right"></i>
           </p>
-          <h3>@sumanto69</h3>
+          <h3><? $data['akun_ig']; ?></h3>
         </div>
-
-        <div class="testimonial-item">
-          <p>
-            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-            Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium
-            quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-          </p>
-          <h3>@suhadak</h3>
-        </div>
-
-        <div class="testimonial-item">
-          <p>
-            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-            Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium
-            quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-          </p>
-          <h3>@jainul</h3>
-        </div>
-
-        <div class="testimonial-item">
-          <p>
-            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-            Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium
-            quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-          </p>
-          <h3>@sukron</h3>
-        </div>
-
-        <div class="testimonial-item">
-          <p>
-            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-            Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium
-            quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-          </p>
-          <h3>@naam</h3>
-        </div>
+        <?php
+        }
+        ?>
 
       </div>
 
