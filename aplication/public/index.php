@@ -27,7 +27,6 @@
 
         <!-- LAYANAN TERFAVORIT  ==== BELUM FIX ==== -->
         <?php
-        //$qsql = $koneksi->query("SELECT id_layanan COUNT(id_layanan) AS best FROM order GROUP BY id_layanan LEFT JOIN layanan ON order.id_layanan=layanan.id_layanan ORDER BY best DESC LIMIT 3");
         $query = $koneksi->query("SELECT * FROM layanan LEFT JOIN jenis_layanan ON layanan.id_jenis_layanan=jenis_layanan.id_jenis_layanan ORDER BY layanan.id_layanan ASC LIMIT 3");
         while ($fav = mysqli_fetch_assoc($query)) {
 
@@ -35,7 +34,7 @@
           <div class="col-lg-4 col-md-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
             <div class="icon-box">
               <img src="assets/img/gambar_layanan/<?= $fav['gambar']; ?>" class="img-fluid mb-3" alt="">
-              <h4><a href="index.php?page=detail"><?= $fav['nama_layanan']; ?></a></h4>
+              <h4><a href="index.php?page=detail&idl=<?= $fav['id_layanan']; ?>"><?= $fav['nama_layanan']; ?></a></h4>
             </div>
           </div>
         <?php } ?>
@@ -168,42 +167,97 @@
         <p>CEK STATUS</p>
       </div>
 
+      <!-- END OF ALERT -->
       <div class="row mt-3 m-auto">
-        <form action="#" method="post" role="form" class="ceknota w-100">
+        <form action="#ceknota" method="POST" class="ceknota w-100">
           <div class="form-group row w-100">
             <div class="col pr-0">
-              <input type="text" class="form-control" name="ceknota" id="ceknota" placeholder="Cek Nota" />
+              <input type="text" class="form-control" name="nota" placeholder="Cek Nota" />
             </div>
             <div class="col-2 pl-0" style="max-width: 13%;">
-              <div>
-                <div class="loading"></div>
-                <div class="error-message"></div>
-                <div class="sent-message"></div>
-                <button type="submit" class="btn btn-dark float-right">Cek Status</button>
-              </div>
+              <button type="submit" name="submit" class="btn btn-dark float-right">Cek Status</button>
             </div>
           </div>
+          <?php
+          if (isset($_POST['submit'])) {
+            $nota = $_POST['nota'];
+            $query = $koneksi->query("SELECT * FROM `order` LEFT JOIN layanan ON order.id_layanan=layanan.id_layanan WHERE id_order='$nota'");
+            $data = mysqli_fetch_assoc($query);
+            if (!$query) {
+              die("Query gagal dijalankan: " . mysqli_errno($koneksi) .
+                " - " . mysqli_error($koneksi));
+            }
+            if (!mysqli_num_rows($query)) {
+          ?>
+              <div class="alert alert-danger" role="alert">
+                Nomor Nota tidak valid!
+              </div>
+            <?php
+            } else {
+
+
+            ?>
         </form>
       </div>
-
       <div class="row justify-content-md-center">
+        <?php
+              //$qs = $koneksi->query("SELECT * FROM ")
+              $status = $data['id_order_status'];
+        ?>
         <ul class="bulat-proses">
-          <li class="active">Penjemputan</li>
-          <li>Proses Cuci</li>
-          <li>Pengantaran</li>
-          <li>Selesai</li>
+          <li class="<?php if ($status == "1") {
+                        echo "active";
+                      }; ?>">Penjemputan</li>
+          <li class="<?php if ($status == "2") {
+                        echo "active";
+                      }; ?>">Proses Cuci</li>
+          <li class="<?php if ($status == "3") {
+                        echo "active";
+                      }; ?>">Pengantaran</li>
+          <li class="<?php if ($status == "4") {
+                        echo "active";
+                      }; ?>">Selesai</li>
         </ul>
       </div>
       <div class="row justify-content-center mt-4">
-        <ul class="detail_cek">
-          <li><b>NOMOR NOTA : </b> PCAC001</li>
-          <li>Nomor Nota : PCAC001</li>
-          <li>Nomor Nota : PCAC001</li>
-          <li>Nomor Nota : PCAC001</li>
-          <li>Nomor Nota : PCAC001</li>
-        </ul>
+        <table class="detail_cek">
+          <tr>
+            <td><b>NOMOR NOTA</b></td>
+            <td>:</td>
+            <td><?= $data['id_order']; ?></td>
+          </tr>
+          <tr>
+            <td><b>LAYANAN</b></td>
+            <td>:</td>
+            <td><?= $data['nama_layanan']; ?></td>
+          </tr>
+          <tr>
+            <td><b>NAMA CUSTOMER</b></td>
+            <td>:</td>
+            <td><?= $data['nama_pelanggan']; ?></td>
+          </tr>
+          <tr>
+            <td><b>MERK SEPATU</b></td>
+            <td>:</td>
+            <td><?= $data['merk']; ?></td>
+          </tr>
+          <tr>
+            <td><b>UKURAN SEPATU</b></td>
+            <td>:</td>
+            <td><?= $data['ukuran']; ?></td>
+          </tr>
+          <tr>
+            <td><b>WARNA SEPATU</b></td>
+            <td>:</td>
+            <td><?= $data['warna']; ?></td>
+          </tr>
+        </table>
       </div>
 
+  <?php
+            }
+          }
+  ?>
 
 
     </div>

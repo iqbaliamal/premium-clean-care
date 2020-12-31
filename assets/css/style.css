@@ -1620,6 +1620,7 @@ section {
 .login button{
   background-color: orange;
   color: white;
+  font-weight: bold;
   border: none;
   border-radius: 20px;
   padding: 2px 10px 2px 10px;

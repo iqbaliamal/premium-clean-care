@@ -35,7 +35,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
                   <label>Nama Layanan</label>
                 </div>
                 <div class="col-md-5 form-group">
-                  <input type="text" name="nama_layanan" id="nama_layanan" class="form-control" value="" disabled>
+                  <input type="text" name="nama_layanan" id="nama_layanan" class="form-control" value="" readonly>
                 </div>
               </div>
 
@@ -57,7 +57,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
                   <label>Order Date</label>
                 </div>
                 <div class="col-md-5 form-group">
-                  <input type="text" name="order_date" id="order_date" class="form-control" value="" disabled>
+                  <input type="text" name="order_date" id="order_date" class="form-control" value="" readonly>
                 </div>
               </div>
 
@@ -66,7 +66,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
                   <label>Harga</label>
                 </div>
                 <div class="col-md-5 form-group">
-                  <input type="text" name="harga" id="harga" class="form-control" value="" disabled>
+                  <input type="text" name="harga" id="harga" class="form-control" value="" readonly>
                 </div>
               </div>
 
@@ -75,7 +75,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
                   <label>Merk</label>
                 </div>
                 <div class="col-md-5 form-group">
-                  <input type="text" name="merk" id="merk" class="form-control" value="" disabled>
+                  <input type="text" name="merk" id="merk" class="form-control" value="" readonly>
                 </div>
               </div>
 
@@ -84,7 +84,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
                   <label>Ukuran</label>
                 </div>
                 <div class="col-md-5 form-group">
-                  <input type="text" name="ukuran" id="ukuran" class="form-control" value="" disabled>
+                  <input type="text" name="ukuran" id="ukuran" class="form-control" value="" readonly>
                 </div>
               </div>
 
@@ -93,7 +93,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
                   <label>Warna</label>
                 </div>
                 <div class="col-md-5 form-group">
-                  <input type="text" name="warna" id="warna" class="form-control" value="" disabled>
+                  <input type="text" name="warna" id="warna" class="form-control" value="" readonly>
                 </div>
               </div>
 
@@ -111,7 +111,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
                   <label>Lokasi</label>
                 </div>
                 <div class="col-md-5 form-group">
-                  <input type="text" name="lokasi" id="lokasi" class="form-control" value="" disabled>
+                  <input type="text" name="lokasi" id="lokasi" class="form-control" value="" readonly>
                 </div>
               </div>
 
@@ -122,7 +122,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
                   <label>Nama Pelanggan</label>
                 </div>
                 <div class="col-md-5 form-group">
-                  <input type="text" name="nama_pelanggan" id="nama_pelanggan" class="form-control" value="" disabled>
+                  <input type="text" name="nama_pelanggan" id="nama_pelanggan" class="form-control" value="" readonly>
                 </div>
               </div>
 
@@ -131,7 +131,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
                   <label>Email</label>
                 </div>
                 <div class="col-md-5 form-group">
-                  <input type="text" name="email" id="email" class="form-control" value="" disabled>
+                  <input type="text" name="email" id="email" class="form-control" value="" readonly>
                 </div>
               </div>
 
@@ -140,7 +140,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
                   <label>Nomor Hp</label>
                 </div>
                 <div class="col-md-5 form-group">
-                  <input type="text" name="nomor_hp" id="nomor_hp" class="form-control" value="" disabled>
+                  <input type="text" name="nomor_hp" id="nomor_hp" class="form-control" value="" readonly>
                 </div>
               </div>
 
