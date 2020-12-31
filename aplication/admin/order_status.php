@@ -39,30 +39,25 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
         </div>
         <!-- END OF ALERT -->
 
+        <?php
+        $query = $koneksi->query("SELECT * FROM order_status ORDER BY id_order_status ASC");
+        $no = 1;
+        while ($data = mysqli_fetch_assoc($query)) {
+        ?>
         <div class="table-responsive">
           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
               <tr>
-                <th>No</th>
-                <th hidden>id order Status</th>
-                <th>Order Status</th>
+                <th><?= $no++; ?></th>
+                <th hidden><?= $data['id_order_status']; ?></th>
+                <th><?= $data['order_status']; ?></th>
                 <th>Action</th>
               </tr>
             </thead>
             <tfoot>
-              <tr>
-                <th>No</th>
-                <th hidden>id order Status</th>
-                <th>Order Status</th>
-                <th>Action</th>
-              </tr>
-            </tfoot>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td hidden>id order status</td>
-                <td>Penjemputan</td>
-                <td>
+            <?php
+        }
+        ?>
                   <button class="editbtn border-0 btn-transition btn btn-outline-warning" type="button"> <i class="fa fa-edit"></i> </button>
                   <button class="deletebtn border-0 btn-transition btn btn-outline-danger" type="button"> <i class="fa fa-trash"></i> </button>
                 </td>

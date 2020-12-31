@@ -34,25 +34,30 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
         </div>
         <!-- END OF ALERT -->
 
+        <?php
+        $query = $koneksi->query("SELECT * FROM order ORDER BY id_order ASC");
+        $no = 1;
+        while ($data = mysqli_fetch_assoc($query)) {
+        ?>
         <div class="col mb-2">
           <div class="card border-left-primary shadow">
             <div class="card-body">
               <div class="row d-flex">
-                <div class="text-s mr-auto font-weight-bold text-uppercase mb-2">Deep Clean</div>
-                <div class="text-s mr-3 text-uppercase">19-12-2020 : 14.35</div>
+                <div class="text-s mr-auto font-weight-bold text-uppercase mb-2"><?= $data['nama_layanan']; ?></div>
+                <div class="text-s mr-3 text-uppercase"><?= $data['order_date']; ?></div>
                 <div class="text-s text-uppercase">
-                  <span class="badge badge-primary">Penjemputan</span>
+                  <span class="badge badge-primary"><?= $data['order_status']; ?></span>
                 </div>
               </div>
               <div class="row d-flex">
-                <div class="text-s mr-auto text-uppercase mb-2">Budi</div>
-                <div class="text-s mr-5 text-uppercase">Rp. 20.000</div>
+                <div class="text-s mr-auto text-uppercase mb-2"><?= $data['nama_pelanggan']; ?></div>
+                <div class="text-s mr-5 text-uppercase"><?= $data['harga']; ?></div>
                 <div class="text-s font-weight-bold text-uppercase">
                   <a href="detail_order.php" class="badge badge-dark">detail</a>
                 </div>
               </div>
               <div class="row d-flex">
-                <div class="text-s mr-auto font-italic mb-2">Nike Air Jordan | Merah | 42</div>
+                <div class="text-s mr-auto font-italic mb-2"><?= $data['merk']; ?> | <?= $data['warna']; ?> | <?= $data['ukuran']; ?></div>
                 <div class="text-s font-weight-bold">
                   <button class="deletebtn border-0 btn-transition btn-sm btn-outline-danger" type="button"> <i class="fa fa-trash"></i> </button>
                 </div>
@@ -60,8 +65,11 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
             </div>
           </div>
         </div>
+        <?php
+        }
+              ?>
 
-        <div class="col mb-2">
+        <!-- <div class="col mb-2">
           <div class="card border-left-warning shadow">
             <div class="card-body">
               <div class="row d-flex">
@@ -143,7 +151,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
         </div>
 
       </div>
-    </div>
+    </div> -->
 
 
     <!-- DELETE DATA -->
