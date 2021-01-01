@@ -3,7 +3,14 @@ session_start();
 require_once "../../../config/koneksi.php";
 // TAMBAH DATA JENIS LAYANAN
 if (isset($_POST['addJenisLayanan'])) {
-  $jenis_layanan = htmlspecialchars($_POST['jenis_layanan']);
+  function validate($data)
+  {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+  }
+  $jenis_layanan = validate($_POST['jenis_layanan']);
 
   $query = $koneksi->query("INSERT INTO jenis_layanan SET jenis_layanan='$jenis_layanan'");
   if (!$query) {

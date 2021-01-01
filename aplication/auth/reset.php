@@ -38,15 +38,15 @@ if (
             <input type="text" name="action" value="update" hidden />
 
             <!-- input password baru -->
-            <label for="password1">New Password</label>
+            <label for="password1">New Password</label> <span style="color: red;"> *</span>
             <input type="password" id="password1" name="password1" class="form-control" />
-            <label for="password2">Re Type Password</label>
+            <label for="password2">Re Type Password</label> <span style="color: red;"> *</span>
             <input type="password" id="password2" name="password2" class="form-control" />
 
             <!-- ambil email -->
             <input type="text" name="email" value="<?php echo $email; ?>" hidden />
 
-            <button type="submit" name="simpan_reset_pw" class="mt-2 mb-2">Simpan</button>
+            <button type="submit" name="simpan_reset_pw" class="mt-2 mb-2">SIMPAN</button>
             <p>Sudah Punya Akun ?<a href="index.php?page=login" class="text-decoration-none"> Login di sini</a></p><br />
           </form>
         </div>

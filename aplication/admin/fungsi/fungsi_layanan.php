@@ -5,10 +5,17 @@ session_start();
 
 // TAMBAH DATA LAYANAN
 if (isset($_POST['addLayanan'])) {
-  # code...
-  $jenis_layanan = htmlspecialchars($_POST['jenis_layanan']);
-  $nama_layanan = htmlspecialchars($_POST['nama_layanan']);
-  $harga = htmlspecialchars($_POST['harga']);
+  function validate($data)
+  {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+  }
+
+  $jenis_layanan = validate($_POST['jenis_layanan']);
+  $nama_layanan = validate($_POST['nama_layanan']);
+  $harga = validate($_POST['harga']);
   $gambar = $_FILES['gambar']['name'];
 
   //cek dulu jika ada gambar produk jalankan coding ini
@@ -69,12 +76,18 @@ if (isset($_POST['deleteLayanan'])) {
 
 // EDIT DATA LAYANAN
 if (isset($_POST['editLayanan'])) {
-  # code...
-  $id             = $_POST['id'];
-  $id_jenis       = $_POST['jenis_layanan'];
-  $nama_layanan   = $_POST['nama_layanan'];
-  $harga_layanan  = $_POST['harga'];
-  $gambar         = $_FILES['img']['name'];
+  function validate($data)
+  {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+  }
+  $id             = validate($_POST['id']);
+  $id_jenis       = validate($_POST['jenis_layanan']);
+  $nama_layanan   = validate($_POST['nama_layanan']);
+  $harga_layanan  = validate($_POST['harga']);
+  $gambar         = validate($_FILES['img']['name']);
   //cek dulu jika merubah gambar produk jalankan coding ini
   if ($gambar != "") {
     $ekstensi_diperbolehkan = array('png', 'jpg', 'jpeg'); //ekstensi file gambar yang bisa diupload 

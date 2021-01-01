@@ -15,18 +15,18 @@
           </div>
         <?php } ?>
         <!-- END OF ALERT -->
-        <label for="nama">NAMA Lengkap</label>
+        <label for="nama">NAMA Lengkap</label> <span style="color: red;"> *</span>
         <input type="text" id="nama" name="nama" class="form-control" />
-        <label for="no">No Handphone</label>
+        <label for="no">No Handphone</label><span style="color: red;"> *</span>
         <input type="integer" id="no" name="no_hp" class="form-control" />
-        <label for="email">Email</label>
+        <label for="email">Email</label><span style="color: red;"> *</span>
         <input type="email" id="email" name="email" class="form-control" />
-        <label for="password">Password</label>
+        <label for="password">Password</label><span style="color: red;"> *</span>
         <input type="password" name="password" id="password" class="form-control" />
         <!-- <input type="checkbox" name="" id="remember" /> -->
         <!-- <label for="remember" class="ml-1">Remember me</label><br /> -->
-        <button type="submit" name="register">Register</button>
-        <p>Sudah Punya Akun ?<a href="index.php?page=login" class="text-decoration-none">Login di sini</a></p><br />
+        <button type="submit" class="m-2" name="register">REGISTER</button>
+        <p>Sudah Punya Akun ?<a href="index.php?page=login" class="text-decoration-none"> Login di sini</a></p><br />
       </form>
     </div>
   </section>

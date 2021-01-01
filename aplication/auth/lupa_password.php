@@ -17,10 +17,10 @@
         <!-- END OF ALERT -->
         <h6>Lupa password ? Masukkan email anda pada form berikut. Anda akan
           menerima email untuk reset password.</h6>
-        <label for="email">Email</label>
+        <label for="email">Email</label><span style="color: red;"> *</span>
         <input type="email" id="email" name="email" class="form-control" required />
 
-        <button type="submit" name="reset_pw" class="mt-2 mb-2">Reset Password</button>
+        <button type="submit" name="reset_pw" class="mt-2 mb-2">RESET PASSWORD</button>
         <p>Sudah Punya Akun ?<a href="index.php?page=login" class="text-decoration-none"> Login di sini</a></p><br />
       </form>
     </div>

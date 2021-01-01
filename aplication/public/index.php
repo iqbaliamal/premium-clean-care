@@ -103,22 +103,24 @@
     <div class="container" data-aos="zoom-in">
 
       <div class="owl-carousel testimonials-carousel">
-        
-      <?php
+
+        <?php
         $query = $koneksi->query("SELECT * FROM testimoni ORDER BY id_testimoni ASC");
         $NO = 1;
-        WHILE ($data = mysqli_fetch_assoc($query)) {
+        while ($data = mysqli_fetch_assoc($query)) {
         ?>
 
-        <div class="testimonial-item">
-        
-          <p>
-            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-            <?= $data['testimoni']; ?>
-            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-          </p>
-          <h3><? $data['akun_ig']; ?></h3>
-        </div>
+          <div class="testimonial-item">
+
+            <p>
+              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+              <?= $data['testimoni']; ?>
+              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+            </p>
+            <h3>
+              <?= $data['akun_ig']; ?>
+            </h3>
+          </div>
         <?php
         }
         ?>
@@ -133,7 +135,7 @@
     <div class="container" data-aos="fade-up">
       <div class="section-title">
         <h2>Cek Nota</h2>
-        <p>CEK STATUS</p>
+        <p>CEK NOTA</p>
       </div>
 
       <!-- END OF ALERT -->

@@ -95,15 +95,15 @@
               <input type="text" name="nama" id="nama" class="form-control mb-2" required />
 
               <label for="email">Email</label>
-              <input type="email" name="" id="email" class="form-control mb-2" required />
+              <input type="email" name="email" id="email" class="form-control mb-2" required />
 
               <label for="no">Nomor HP</label>
-              <input type="number" name="no" id="no" class="form-control mb-2" required />
+              <input type="number" name="no_hp" id="no" class="form-control mb-2" required />
               <br>
               <p>setelah klik submit silahkan cek email anda, dan pastikan data yang dikirimkan ke email anda sudah benar.
                 kami akan segera menghubungi anda untuk melakukan konfirmasi
               </p>
-              <button class="float-right btn" type="submit">SUBMIT</button>
+              <button class="float-right btn" name="transaksi" type="submit">SUBMIT</button>
             </div>
           </div>
         </form>

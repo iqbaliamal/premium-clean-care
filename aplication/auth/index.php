@@ -18,12 +18,12 @@
         ?>
 
         <!-- END OF ALERT -->
-        <label for="email">Email</label>
+        <label for="email">Email</label> <span style="color: red;"> *</span>
         <input type="email" id="email" name="email" class="form-control" />
-        <label for="password">Password</label>
+        <label for="password">Password</label> <span style="color: red;"> *</span>
         <input type="password" name="password" id="password" class="form-control" />
         <!-- <input type="checkbox" name="" id="remember" /><label for="remember" class="ml-1">Remember me</label><br /> -->
-        <button type="submit" name="login">Login</button>
+        <button type="submit" class="mt-2 mb-2" name="login">LOGIN</button>
         <a href="index.php?page=register" class="ml-2 text-decoration-none text-dark">Register</a><br />
         <a href="index.php?page=forgot" class="text-decoration-none">Lupa Password?</a>
       </form>

@@ -10,9 +10,6 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
       <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-      <div class="alert alert-primary" role="alert">
-        Selamat Datang <span><?= $_SESSION['nama'] ?></span>, Anda berhasil login.
-      </div>
       <nav aria-label="breadcrumb shadow">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.php">Home</a></li>
@@ -21,11 +18,14 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
       </nav>
     </div>
 
+    <div class="alert alert-primary" role="alert">
+      Selamat Datang <span><?= $_SESSION['nama'] ?></span>, Anda berhasil login.
+    </div>
     <!-- Ringkasan Row -->
     <div class="row">
 
       <!-- Jenis Layanan -->
-      <div class="col-xl-3 col-md-6 mb-4">
+      <!-- <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-primary shadow h-80 py-2">
           <div class="card-body">
             <div class="row d-flex align-items-center">
@@ -39,10 +39,10 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- Layanan -->
-      <div class="col-xl-3 col-md-6 mb-4">
+      <!-- <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-primary shadow h-80 py-2">
           <div class="card-body">
             <div class="row d-flex align-items-center">
@@ -56,10 +56,10 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- Transaksi -->
-      <div class="col-xl-3 col-md-6 mb-4">
+      <!-- <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-primary shadow h-80 py-2">
           <div class="card-body">
             <div class="row d-flex align-items-center">
@@ -73,10 +73,10 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- Total Omset -->
-      <div class="col-xl-3 col-md-6 mb-4">
+      <!-- <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-primary shadow h-80 py-2">
           <div class="card-body">
             <div class="row d-flex align-items-center">
@@ -91,11 +91,11 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
-    <div class="row">
-      <!-- Member -->
-      <div class="col-xl-3 col-md-6 mb-4">
+      <div class="row">
+        <!-- Member -->
+        <!-- <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-primary shadow h-80 py-2">
           <div class="card-body">
             <div class="row d-flex align-items-center">
@@ -109,10 +109,10 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <!-- Admin -->
-      <div class="col-xl-3 col-md-6 mb-4">
+        <!-- Admin -->
+        <!-- <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-primary shadow h-80 py-2">
           <div class="card-body">
             <div class="row d-flex align-items-center">
@@ -127,19 +127,19 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
           </div>
         </div>
       </div>
-    </div>
-    <!-- Content Row -->
+    </div> -->
+        <!-- Content Row -->
 
-    <div class="row">
+        <div class="row">
 
-    </div>
+        </div>
 
-  </div>
-  <!-- /.container-fluid -->
-<?php
-  require_once "footer.php";
-} else {
-  header("Location: login.php");
-  exit();
-}
-?>
+      </div>
+      <!-- /.container-fluid -->
+    <?php
+    require_once "footer.php";
+  } else {
+    header("Location: login.php");
+    exit();
+  }
+    ?>

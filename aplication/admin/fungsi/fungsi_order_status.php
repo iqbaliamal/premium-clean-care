@@ -4,8 +4,14 @@ require_once "../../../config/koneksi.php";
 
 // TAMBAH DATA STATUS ORDER
 if (isset($_POST['addOrderStatus'])) {
-  # code...
-  $nama_status = htmlspecialchars($_POST['nama_status']);
+  function validate($data)
+  {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+  }
+  $nama_status = validate($_POST['nama_status']);
 
   $query = $koneksi->query("INSERT INTO order_status SET order_status='$nama_status'");
   if (!$query) {

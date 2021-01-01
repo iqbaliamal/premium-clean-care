@@ -17,11 +17,18 @@ use PHPMailer\PHPMailer\SMTP;
 require '../../assets/vendor/autoload.php';
 
 if (isset($_POST['register'])) {
+  function validate($data)
+  {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+  }
 
-  $nama = htmlspecialchars($_POST['nama']);
-  $no_hp = htmlspecialchars($_POST['no_hp']);
-  $email = htmlspecialchars($_POST['email']);
-  $password = htmlspecialchars($_POST['password']);
+  $nama = validate($_POST['nama']);
+  $no_hp = validate($_POST['no_hp']);
+  $email = validate($_POST['email']);
+  $password = validate($_POST['password']);
   $password = password_hash($password, PASSWORD_DEFAULT);
   $token = md5($email . date('Y-m-d'));
   // $date = date('Y-m-d H:i:s');

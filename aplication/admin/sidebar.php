@@ -61,7 +61,9 @@
     <div id="collapseTransaksi" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
         <a class="collapse-item" href="order.php">Order</a>
-        <a class="collapse-item" href="order_status.php">Order Status</a>
+        <!-- <a class="collapse-item" href="order_status.php">Order Status</a> -->
+        <a class="collapse-item" href="" data-toggle="modal" data-target="#TidakBerfungsi">Order Status</a>
+        <!-- <button class="collapse-item" data-toggle="modal" data-target="#TidakBerfungsi">Order Status</button> -->
       </div>
     </div>
   </li>
@@ -125,3 +127,21 @@
 
 </ul>
 <!-- End of Sidebar -->
+
+<div class="modal fade" id="TidakBerfungsi" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <form action="fungsi/fungsi_order.php" method="POST">
+        <div class="modal-body">
+          <input type="hidden" name="delete_id" id="delete_id">
+          <h5> Maaf, Anda tidak punya akses :(</h5>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal"> OK </button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>

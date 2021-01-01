@@ -2,6 +2,11 @@
 session_start();
 if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
   require_once "header.php";
+  require_once "../../config/koneksi.php";
+
+  $id     = $_GET['id'];
+  $query  = $koneksi->query("SELECT * FROM `order` INNER JOIN `layanan` ON order.id_layanan=layanan.id_layanan INNER JOIN order_status ON order.id_order_status=order_status.id_order_status WHERE id_order='$id'");
+  $data   = mysqli_fetch_array($query);
 ?>
   <!-- Begin Page Content -->
   <div class="container-fluid">
@@ -26,16 +31,16 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
       </div>
       <div class="card-content">
         <div class="card-body">
-          <form class="form form-horizontal" action="" method="POST">
+          <form class="form form-horizontal" action="fungsi/fungsi_order.php" method="POST">
             <div class="form-body">
-              <input type="hidden" name="id" value="">
+              <input type="hidden" name="id" value="<?= $data['id_order']; ?>">
 
               <div class="row">
                 <div class="col-md-2">
                   <label>Nama Layanan</label>
                 </div>
                 <div class="col-md-5 form-group">
-                  <input type="text" name="nama_layanan" id="nama_layanan" class="form-control" value="" readonly>
+                  <input type="text" name="nama_layanan" id="nama_layanan" class="form-control" value="<?= $data['nama_layanan']; ?>" readonly>
                 </div>
               </div>
 
@@ -45,9 +50,12 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
                 </div>
                 <div class="col-md-5 form-group">
                   <select name="order_status" id="order_status" class="form-control">
-                    <option value="">pencucian</option>
-                    <option value="">selesai</option>
-                    <option value="">dst</option>
+                    <?php
+                    $qsql = $koneksi->query("SELECT * FROM order_status");
+                    while ($row = mysqli_fetch_assoc($qsql)) {
+                    ?>
+                      <option value="<?= $row['id_order_status']; ?>" <?php if ($row['id_order_status'] == $data['id_order_status']) echo 'selected'; ?>><?php echo $row['order_status']; ?></option>
+                    <?php } ?>
                   </select>
                 </div>
               </div>
@@ -57,7 +65,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
                   <label>Order Date</label>
                 </div>
                 <div class="col-md-5 form-group">
-                  <input type="text" name="order_date" id="order_date" class="form-control" value="" readonly>
+                  <input type="text" name="order_date" id="order_date" class="form-control" value="<?= $data['order_date']; ?>" readonly>
                 </div>
               </div>
 
@@ -66,7 +74,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
                   <label>Harga</label>
                 </div>
                 <div class="col-md-5 form-group">
-                  <input type="text" name="harga" id="harga" class="form-control" value="" readonly>
+                  <input type="text" name="harga" id="harga" class="form-control" value="<?= $data['harga']; ?>" readonly>
                 </div>
               </div>
 
@@ -75,7 +83,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
                   <label>Merk</label>
                 </div>
                 <div class="col-md-5 form-group">
-                  <input type="text" name="merk" id="merk" class="form-control" value="" readonly>
+                  <input type="text" name="merk" id="merk" class="form-control" value="<?= $data['merk']; ?>" readonly>
                 </div>
               </div>
 
@@ -84,7 +92,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
                   <label>Ukuran</label>
                 </div>
                 <div class="col-md-5 form-group">
-                  <input type="text" name="ukuran" id="ukuran" class="form-control" value="" readonly>
+                  <input type="text" name="ukuran" id="ukuran" class="form-control" value="<?= $data['ukuran']; ?>" readonly>
                 </div>
               </div>
 
@@ -93,7 +101,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
                   <label>Warna</label>
                 </div>
                 <div class="col-md-5 form-group">
-                  <input type="text" name="warna" id="warna" class="form-control" value="" readonly>
+                  <input type="text" name="warna" id="warna" class="form-control" value="<?= $data['warna']; ?>" readonly>
                 </div>
               </div>
 
@@ -102,7 +110,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
                   <label>Tanggal Ambil Barang</label>
                 </div>
                 <div class="col-md-5 form-group">
-                  <input type="datetime-local" name="tanggal_pick" id="tanggal_pick" class="form-control" value="">
+                  <input type="text" name="tanggal_pick" id="tanggal_pick" class="form-control" value="<?= $data['tanggal_pick']; ?>" readonly>
                 </div>
               </div>
 
@@ -111,7 +119,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
                   <label>Lokasi</label>
                 </div>
                 <div class="col-md-5 form-group">
-                  <input type="text" name="lokasi" id="lokasi" class="form-control" value="" readonly>
+                  <input type="text" name="lokasi" id="lokasi" class="form-control" value="<?= $data['lokasi_pick']; ?>" readonly>
                 </div>
               </div>
 
@@ -122,7 +130,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
                   <label>Nama Pelanggan</label>
                 </div>
                 <div class="col-md-5 form-group">
-                  <input type="text" name="nama_pelanggan" id="nama_pelanggan" class="form-control" value="" readonly>
+                  <input type="text" name="nama_pelanggan" id="nama_pelanggan" class="form-control" value="<?= $data['nama_pelanggan']; ?>" readonly>
                 </div>
               </div>
 
@@ -131,7 +139,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
                   <label>Email</label>
                 </div>
                 <div class="col-md-5 form-group">
-                  <input type="text" name="email" id="email" class="form-control" value="" readonly>
+                  <input type="text" name="email" id="email" class="form-control" value="<?= $data['email']; ?>" readonly>
                 </div>
               </div>
 
@@ -140,7 +148,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
                   <label>Nomor Hp</label>
                 </div>
                 <div class="col-md-5 form-group">
-                  <input type="text" name="nomor_hp" id="nomor_hp" class="form-control" value="" readonly>
+                  <input type="text" name="nomor_hp" id="nomor_hp" class="form-control" value="<?= $data['nomor_hp']; ?>" readonly>
                 </div>
               </div>
 

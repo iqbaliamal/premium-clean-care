@@ -4,9 +4,15 @@ require_once "../../../config/koneksi.php";
 
 // TAMBAH DATA TESTIMONI
 if (isset($_POST['addTestimoni'])) {
-  # code...
-  $akun_ig = htmlspecialchars($_POST['akun_ig']);
-  $testimoni = htmlspecialchars($_POST['testimoni']);
+  function validate($data)
+  {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+  }
+  $akun_ig = validate($_POST['akun_ig']);
+  $testimoni = validate($_POST['testimoni']);
 
   $query = $koneksi->query("INSERT INTO testimoni SET akun_ig='$akun_ig', testimoni='$testimoni'");
   if (!$query) {
@@ -42,9 +48,16 @@ if (isset($_POST['deleteTestimoni'])) {
 
 // EDIT DATA TESTIMONI
 if (isset($_POST['editTestimoni'])) {
-  $id             = $_POST['update_id'];
-  $akun_ig        = htmlspecialchars($_POST['akun_ig']);
-  $testimoni      = htmlspecialchars($_POST['testimoni']);
+  function validate($data)
+  {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+  }
+  $id             = validate($_POST['update_id']);
+  $akun_ig        = validate($_POST['akun_ig']);
+  $testimoni      = validate($_POST['testimoni']);
 
   $query = $koneksi->query("UPDATE testimoni SET akun_ig='$akun_ig', testimoni='$testimoni' WHERE id_testimoni='$id'");
 

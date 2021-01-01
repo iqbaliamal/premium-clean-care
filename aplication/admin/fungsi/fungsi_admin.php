@@ -4,11 +4,17 @@ require_once "../../../config/koneksi.php";
 
 // TAMBAH DATA ADMIN
 if (isset($_POST['addAdmin'])) {
-  # code...
-  $nama_admin = htmlspecialchars($_POST['nama_admin']);
-  $username = htmlspecialchars($_POST['username']);
-  $email = htmlspecialchars($_POST['email']);
-  $password = htmlspecialchars($_POST['password']);
+  function validate($data)
+  {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+  }
+  $nama_admin = validate($_POST['nama_admin']);
+  $username = validate($_POST['username']);
+  $email = validate($_POST['email']);
+  $password = validate($_POST['password']);
   $password = password_hash($password, PASSWORD_DEFAULT);
 
   $cek = $koneksi->query("SELECT * FROM admin WHERE email='$email' OR username='$username'");
