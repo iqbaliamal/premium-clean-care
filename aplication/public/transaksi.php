@@ -50,6 +50,7 @@ if (isset($_POST["transaksi"])) {
   $nama = clean_text($_POST['nama']);
   $email = clean_text($_POST['email']);
   $no_hp = clean_text($_POST['no_hp']);
+  $tgl  = date('d/m/Y', time());
 
   $id_order = auto_nota();
 
@@ -67,41 +68,69 @@ if (isset($_POST["transaksi"])) {
   // }
 
   $message = '
-    <h3 align="center">Order Details</h3>
-    <table border="1" width="100%" cellpadding="5" cellspacing="5">
-     <tr>
-      <td width="30%">Nomor Nota</td>
-      <td width="70%"></td>
-     </tr>
-     <tr>
-      <td width="30%">Layanan</td>
-      <td width="70%">' . $layanan . '</td>
-     </tr>
-     <tr>
-      <td width="30%">Harga</td>
-      <td width="70%">' . $harga . '</td>
-     </tr>
-     <tr>
-      <td width="30%">Merk Sepatu</td>
-      <td width="70%">' . $merk . '</td>
-     </tr>
-     <tr>
-      <td width="30%">Warna</td>
-      <td width="70%">' . $warna . '</td>
-     </tr>
-     <tr>
-      <td width="30%">Ukuran</td>
-      <td width="70%">' . $ukuran . '</td>
-     </tr>
-     <tr>
-      <td width="30%">Waktu Pemjemputan</td>
-      <td width="70%">' . $waktu . '</td>
-     </tr>
-     <tr>
-      <td width="30%">Lokasi Pemjemputan</td>
-      <td width="70%">' . $lokasi . '</td>
-     </tr>
-    </table>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col" style="text-align: center;">
+          <h2>ORDER DETAILS</h2>
+        </div>
+      </div>
+      <div class="row" style="border:1px solid black">
+        <div class="col">
+          <b>No Nota :' . $id_order . '</b> <br>
+          Tanggal Pemesanan : ' . $tgl . ' <br>
+          Total : Rp ' . $harga . '
+        </div>
+        <div class="col">
+          <b> Pelanggan :  </b> <br>
+          Nama Pelanggan : ' . $nama . ' <br>
+          No Telepon : ' . $no_hp . ' <br>
+        </div>
+        <div class="col">
+          <b>Penjemputan : </b> <br>
+          Lokasi Penjemputan : ' . $lokasi . ' <br>
+          Waktu Penjemputan : ' . $waktu . ' <br>
+        </div>
+      </div>
+      <div class="row mt-1">
+        <table class="table table-md table-bordered">
+          <tr>
+            <th>Layanan</th>
+            <td>' . $layanan . '</td>
+          </tr>
+          <tr>
+            <th>Merk Sepatu</th>
+            <td>' . $merk . '</td>
+          </tr>
+          <tr>
+            <th>Ukuran Sepatu</th>
+            <td>' . $ukuran . '</td>
+          </tr>
+          <tr>
+            <th>Warna</th>
+            <td>' . $warna . '</td>
+          </tr>
+        </table>
+      </div>
+      <div class="row">
+        <div class="col-sm-5">
+          <div class="alert alert-warning">
+            Kami akan segera mengkonfirmasi pesanan anda. <br>
+            Kontak kami : <strong>082123123123 | Mita </strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  
+  </html>
    ';
 
   $mail = new PHPMailer;

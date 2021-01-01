@@ -61,9 +61,8 @@
     <div id="collapseTransaksi" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
         <a class="collapse-item" href="order.php">Order</a>
-        <!-- <a class="collapse-item" href="order_status.php">Order Status</a> -->
-        <a class="collapse-item" href="" data-toggle="modal" data-target="#TidakBerfungsi">Order Status</a>
-        <!-- <button class="collapse-item" data-toggle="modal" data-target="#TidakBerfungsi">Order Status</button> -->
+        <a class="collapse-item" href="order_status.php">Order Status</a>
+        <!-- <a class="collapse-item" href="" data-toggle="modal" data-target="#TidakBerfungsi">Order Status</a> -->
       </div>
     </div>
   </li>

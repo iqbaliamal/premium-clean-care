@@ -1,7 +1,7 @@
   <!-- Form Lupa Password Section -->
   <section>
     <div class="mt-5 container">
-      <form action="aplication/auth/auth.php" method="POST" class="form-group login border">
+      <form action="aplication/auth/forgot_proses.php" method="POST" class="form-group login border">
         <h2 class="text-center mb-3">ACCOUNT RECOVERY</h2>
         <!-- ALERT -->
         <?php if (isset($_GET['error'])) { ?>

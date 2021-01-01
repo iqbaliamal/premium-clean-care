@@ -62,9 +62,32 @@ session_start();
             <li class="nav-item">
               <span class="nav-link" href="">|</span>
             </li>
-            <li class="nav-item">
-              <a href="index.php?page=login" class="nav-link">Login</a>
-            </li>
+            <?php
+            if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
+            ?>
+              <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $_SESSION['nama'] ?></span>
+                  <i class="fas fa-sort-down"></i>
+                  <!-- <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60"> -->
+                </a>
+                <!-- Dropdown - User Information -->
+                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                  <a class="dropdown-item" href="aplication/auth/logout.php">
+                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Logout
+                  </a>
+                </div>
+              </li>
+            <?php
+            } else {
+            ?>
+              <li class="nav-item">
+                <a href="index.php?page=login" class="nav-link">Login</a>
+              </li>
+            <?php
+            }
+            ?>
           </ul>
         </div>
       </nav>
@@ -85,6 +108,12 @@ session_start();
           <li><a href="#ceknota">CEK NOTA</a></li>
         </ul>
       </nav><!-- .nav-menu -->
-      <a href="index.php?page=login" class="get-started-btn">Login</a>
+      <?php
+      if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
+      ?>
+        <a href="aplication/auth/logout.php" class="get-started-btn">Logout</a>
+      <?php } else { ?>
+        <a href="index.php?page=login" class="get-started-btn">Login</a>
+      <?php } ?>
     </div>
   </header><!-- End Header -->

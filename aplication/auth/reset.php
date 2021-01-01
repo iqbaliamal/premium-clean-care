@@ -6,6 +6,7 @@ if (
 ) {
   $token = $_GET["token"];
   $email = $_GET["email"];
+  $action = $_GET["action"];
   $curDate = date("Y-m-d H:i:s");
   $query = $koneksi->query("SELECT * FROM reset_pw_temp WHERE token='$token' AND email='$email'");
   $row = mysqli_num_rows($query);
@@ -19,7 +20,7 @@ if (
       <!-- Form Lupa Password Section -->
       <section>
         <div class="mt-5 container">
-          <form action="aplication/auth/auth.php" method="POST" class="form-group login border">
+          <form action="aplication/auth/reset_proses.php" method="POST" class="form-group login border">
             <h2 class="text-center mb-3">RESET PASSWORD</h2>
             <!-- ALERT -->
             <?php if (isset($_GET['error'])) { ?>
@@ -35,13 +36,16 @@ if (
             <!-- END OF ALERT -->
 
             <!-- aksi untuk update -->
-            <input type="text" name="action" value="update" hidden />
+            <input type="hidden" name="token" value="<?= $token; ?>" />
+            <input type="hidden" name="email" value="<?= $email; ?>" />
+            <input type="hidden" name="aksi" value="<?= $action; ?>" />
+            <input type="hidden" name="action" value="update" />
 
             <!-- input password baru -->
             <label for="password1">New Password</label> <span style="color: red;"> *</span>
-            <input type="password" id="password1" name="password1" class="form-control" />
+            <input type="password" id="password1" name="password" class="form-control" />
             <label for="password2">Re Type Password</label> <span style="color: red;"> *</span>
-            <input type="password" id="password2" name="password2" class="form-control" />
+            <input type="password" id="password2" name="retypePassword" class="form-control" />
 
             <!-- ambil email -->
             <input type="text" name="email" value="<?php echo $email; ?>" hidden />
