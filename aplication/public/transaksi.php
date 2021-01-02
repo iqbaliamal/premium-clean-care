@@ -530,7 +530,7 @@ if (isset($_POST["transaksi"])) {
                       </tr>
                       <tr>
                           <td valign="middle" style="text-align:left; padding: 1em 2.5em;">
-                              <p><a href=""http://localhost/premium-clean-care"" class="btn btn-primary">Continur your order</a></p>
+                              <p><a href="http://localhost/premium-clean-care" class="btn btn-primary">Continur your order</a></p>
                           </td>
                       </tr>
                   </table>

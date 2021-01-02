@@ -408,7 +408,7 @@ if (isset($_POST['register'])) {
                         <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
                             <tr>
                                 <td class="logo" style="text-align: center;">
-                                    <h1><a href="#">e-Verify</a></h1>
+                                    <h1><a href="#">Verifikasi Akun</a></h1>
                                 </td>
                             </tr>
                         </table>
@@ -416,7 +416,7 @@ if (isset($_POST['register'])) {
                 </tr><!-- end tr -->
                 <tr>
                     <td valign="middle" class="hero bg_white" style="padding: 3em 0 2em 0;">
-                        <img src="https://www.pngfind.com/pngs/m/47-479941_png-file-svg-icon-email-transparent-png.png" style="width: 300px; max-width: 600px; height: auto; margin: auto; display: block;">
+                        <img src="https://i.pinimg.com/originals/bb/18/bd/bb18bdbbef437b2d50518db5a8292c94.png" style="width: 300px; max-width: 600px; height: auto; margin: auto; display: block;">
                     </td>
                 </tr><!-- end tr -->
                 <tr>
@@ -427,7 +427,8 @@ if (isset($_POST['register'])) {
                                     <div class="text" style="padding: 0 2.5em; text-align: center;">
                                         <h2>Please verify your email</h2>
                                         <p><a href="http://localhost/premium-clean-care/index.php?page=confirm&token=8a1eeba30377f2108e1e53cecffd99b1" class="btn btn-primary">Verify</a></p>
-                                        <h3><a href="http://localhost/premium-clean-care/index.php?page=confirm&token=8a1eeba30377f2108e1e53cecffd99b1">Jika tombol tidak berfungsi klik di sini</a></h3>
+                                        <h3>Jika tombol tidak berfungsi klik link berikut</h3>
+                                        http://localhost/premium-clean-care/index.php?page=confirm&token=8a1eeba30377f2108e1e53cecffd99b1
                                     </div>
                                 </td>
                             </tr>
