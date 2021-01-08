@@ -14,18 +14,22 @@ if (mysqli_num_rows($query) == 0) {
   header("Location:../../index.php?page=login&error=Email belum terdaftar!");
 } else {
   $data = mysqli_fetch_assoc($query);
-  $password = $data['password'];
-
-  if (password_verify($pass, $password)) {
-    $_SESSION['nama']   = $data['nama_member'];
-    $_SESSION['id']     = $data['id_member'];
-    $_SESSION['user']   = $data['username'];
-    $_SESSION['no']     = $data['nomor_hp'];
-    $_SESSION['email']  = $data['email'];
-    header("Location:../../index.php?page=profile&sukses=Berhasil Login");
-    exit;
+  if ($data['is_active'] == 0) {
+    header("Location:../../index.php?page=login&error=Silahkan Aktivasi akun anda terlebih dahulu!");
   } else {
-    header("Location:../../index.php?page=login&error=Password yang anda masukkan salah!");
-    exit();
+    $password = $data['password'];
+
+    if (password_verify($pass, $password)) {
+      $_SESSION['nama']   = $data['nama_member'];
+      $_SESSION['id']     = $data['id_member'];
+      $_SESSION['user']   = $data['username'];
+      $_SESSION['no']     = $data['nomor_hp'];
+      $_SESSION['email']  = $data['email'];
+      header("Location:../../index.php?page=profile&sukses=Berhasil Login");
+      exit;
+    } else {
+      header("Location:../../index.php?page=login&error=Password yang anda masukkan salah!");
+      exit();
+    }
   }
 }

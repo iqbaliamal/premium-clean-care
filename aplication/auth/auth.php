@@ -95,7 +95,7 @@ if (isset($_POST['register'])) {
       echo 'Mailer Error: ' . $mail->ErrorInfo;
     } else {
       // echo '<script>alert("Registrasi berhasil! silahkan login");</script>';
-      header('Location: ../../index.php?page=register&sukses=Registrasi berhasil!, silahkan verifikasi akun anda!');
+      header('Location: ../../index.php?page=register&sukses=Registrasi berhasil!, verifikasi berhasil dikirim ke email anda, silahkan aktivasi akun anda!');
       //Section 2: IMAP
       //Uncomment these to save your message in the 'Sent Mail' folder.
       #if (save_mail($mail)) {

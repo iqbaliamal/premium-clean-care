@@ -69,7 +69,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
               ?>
                 <tr>
                   <td><?= $no++; ?></td>
-                  <td hidden><?= $data['id_jenis_layanan']; ?></td>
+                  <td><?= $data['id_jenis_layanan']; ?></td>
                   <td><?= $data['jenis_layanan']; ?></td>
                   <td>
                     <button class="editbtn border-0 btn-transition btn btn-outline-warning" type="button"> <i class="fa fa-edit"></i> </button>
@@ -153,7 +153,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
 
           <form action="fungsi/fungsi_jenis_layanan.php" method="POST">
             <div class="modal-body">
-              <input type="hidden" name="delete_id" id="delete_id">
+              <input type="text" name="delete_id" id="delete">
               <h5> Apakah anda yakin akan menghapus data?</h5>
             </div>
             <div class="modal-footer">
@@ -185,6 +185,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
         //alert("you activate the event");
         $('.deletebtn').on('click', function() {
           $('#deleteJenisLayanan').modal('show');
+
           $tr = $(this).closest('tr');
           var data = $tr.children("td").map(function() {
             return $(this).text();
@@ -192,7 +193,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
 
           console.log(data);
 
-          $('#delete_id').val(data[1]);
+          $('#delete').val(data[1]);
         });
       });
     });
