@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
+if (isset($_SESSION['id_admin']) && isset($_SESSION['user_admin'])) {
   require_once "header.php";
   require_once "../../config/koneksi.php";
 

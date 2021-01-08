@@ -32,10 +32,10 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
       $password = $row['password'];
 
       if (password_verify($pass, $password)) {
-        $_SESSION['nama'] = $row['nama_admin'];
-        $_SESSION['id'] = $row['id_admin'];
-        $_SESSION['user'] = $row['username'];
-        $_SESSION['email'] = $row['email'];
+        $_SESSION['nama_admin'] = $row['nama_admin'];
+        $_SESSION['id_admin'] = $row['id_admin'];
+        $_SESSION['user_admin'] = $row['username'];
+        $_SESSION['email_admin'] = $row['email'];
 
         header("Location: ../index.php");
         exit;

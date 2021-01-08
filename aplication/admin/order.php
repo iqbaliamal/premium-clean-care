@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
+if (isset($_SESSION['id_admin']) && isset($_SESSION['user_admin'])) {
   require_once "header.php";
   require_once "../../config/koneksi.php";
 ?>
@@ -39,7 +39,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
         <!-- END OF ALERT -->
 
         <?php
-        $query = $koneksi->query("SELECT * FROM `order` INNER JOIN `layanan` ON order.id_layanan=layanan.id_layanan INNER JOIN order_status ON order.id_order_status=order_status.id_order_status ORDER BY id_order ASC");
+        $query = $koneksi->query("SELECT * FROM `order` INNER JOIN `layanan` ON order.id_layanan=layanan.id_layanan INNER JOIN order_status ON order.id_order_status=order_status.id_order_status ORDER BY id_order DESC");
         $no = 1;
         while ($data = mysqli_fetch_assoc($query)) {
         ?>

@@ -64,10 +64,13 @@ session_start();
             </li>
             <?php
             if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
+              $id     = $_SESSION['id'];
+              $queryProfile  = $koneksi->query("SELECT * FROM `member` WHERE id_member='$id'");
+              $data   = mysqli_fetch_assoc($queryProfile);
             ?>
               <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $_SESSION['nama'] ?></span>
+                  <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $data['nama_member'] ?></span>
                   <i class="fas fa-sort-down"></i>
                   <!-- <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60"> -->
                 </a>
@@ -111,7 +114,7 @@ session_start();
       <?php
       if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
       ?>
-        <a href="aplication/auth/logout.php" class="get-started-btn">Logout</a>
+        <a href="index.php?page=profile" class="get-started-btn">Profile</a>
       <?php } else { ?>
         <a href="index.php?page=login" class="get-started-btn">Login</a>
       <?php } ?>

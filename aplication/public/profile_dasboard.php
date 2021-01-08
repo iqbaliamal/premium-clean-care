@@ -1,16 +1,21 @@
 <div class="container">
 
+  <?php
+  $id     = $_SESSION['id'];
+  $queryProfile  = $koneksi->query("SELECT * FROM `member` WHERE id_member='$id'");
+  $data   = mysqli_fetch_assoc($queryProfile);
+  ?>
   <section class="my_account">
     <h2>MY ACCOUNT</h2><br>
     <!-- ALERT -->
     <?php if (isset($_GET['sukses'])) { ?>
       <div class="alert alert-success mb-3" role="alert">
-        <?php echo $_GET['sukses'] ?>
+        <?php echo $_GET['sukses']; ?>
       </div>
     <?php } ?>
     <?php if (isset($_GET['error'])) { ?>
       <div class="alert alert-danger mb-3" role="alert">
-        <?php echo $_GET['error'] ?>
+        <?php echo $_GET['error']; ?>
       </div>
     <?php } ?>
     <!-- END OF ALERT -->
@@ -29,7 +34,7 @@
           <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
             <div class="jumbotron jumbotron-fluid">
               <div class="container">
-                <p class="display-4">Hallo <?= $_SESSION['nama']; ?></p>
+                <p class="display-4">Hallo <?= $data['nama_member']; ?></p>
                 <p class="lead">Pada halaman ini anda bisa mengubah profile, melihat order terakhir, dan melihat proses order.</p>
               </div>
             </div>
@@ -39,15 +44,16 @@
               <div class="col">
                 <form action="aplication/public/ubah_profil.php" method="POST" class="form-group login">
                   <h4>PROFILE</h4>
+
                   <div class="row">
                     <div class="col">
-                      <input type="hidden" name="id" id="id" class="form-control" value="<?= $_SESSION['id']; ?>" />
+                      <input type="hidden" name="id" id="id" class="form-control" value="<?= $data['id_member']; ?>" />
                       <label for="nama_lengkap">Nama Lengkap</label>
-                      <input type="text" name="nama_lengkap" id="nama_lengkap" class="form-control" value="<?= $_SESSION['nama']; ?>" />
+                      <input type="text" name="nama_lengkap" id="nama_lengkap" class="form-control" value="<?= $data['nama_member']; ?>" />
                       <label for="no">Nomor HP</label>
-                      <input type="text" name="no" id="no" class="form-control" value="<?= $_SESSION['no']; ?>" />
+                      <input type="text" name="no" id="no" class="form-control" value="<?= $data['nomor_hp']; ?>" />
                       <label for="email">Email</label>
-                      <input type="email" name="email" id="email" class="form-control" value="<?= $_SESSION['email']; ?>" />
+                      <input type="email" name="email" id="email" class="form-control" value="<?= $data['email']; ?>" />
                     </div>
                   </div>
                   <h4 class="mt-3 mb-2">Ubah Password</h4>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
+if (isset($_SESSION['id_admin']) && isset($_SESSION['user_admin'])) {
   require_once "header.php";
   require_once "../../config/koneksi.php";
 ?>
@@ -153,7 +153,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
 
           <form action="fungsi/fungsi_jenis_layanan.php" method="POST">
             <div class="modal-body">
-              <input type="text" name="delete_id" id="delete">
+              <input type="hidden" name="delete_id" id="delete">
               <h5> Apakah anda yakin akan menghapus data?</h5>
             </div>
             <div class="modal-footer">

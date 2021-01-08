@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
+if (isset($_SESSION['id_admin']) && isset($_SESSION['user_admin'])) {
   require_once "header.php";
   require_once "../../config/koneksi.php";
 ?>
@@ -18,8 +18,13 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
       </nav>
     </div>
 
+    <?php
+    $id     = $_SESSION['id_admin'];
+    $query  = $koneksi->query("SELECT * FROM `admin` WHERE id_admin='$id'");
+    $data   = mysqli_fetch_array($query);
+    ?>
     <div class="alert alert-primary" role="alert">
-      Selamat Datang <span><?= $_SESSION['nama'] ?></span>, Anda berhasil login.
+      Selamat Datang <span><?= $data['nama_admin'] ?></span>, Anda berhasil login.
     </div>
     <!-- Ringkasan Row -->
     <div class="row">

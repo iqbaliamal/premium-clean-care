@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
+if (isset($_SESSION['id_admin']) && isset($_SESSION['user_admin'])) {
   require_once "header.php";
   require_once "../../config/koneksi.php";
 ?>
@@ -77,27 +77,6 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
         </div>
       </div>
     </div>
-
-    <!-- DELETE DATA -->
-    <div class="modal fade" id="deleteLayanan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-
-          <form action="fungsi/fungsi_member.php" method="POST">
-            <div class="modal-body">
-              <input type="hidden" name="delete_id" id="delete_id">
-              <h5> Apakah anda yakin akan menghapus data?</h5>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal"> Batal </button>
-              <button type="submit" name="deleteLayanan" class="btn btn-danger"> Hapus </button>
-            </div>
-          </form>
-
-        </div>
-      </div>
-    </div>
-    <!-- ======================================================================================== -->
 
   </div>
   <!-- /.container-fluid -->

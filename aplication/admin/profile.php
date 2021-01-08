@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
+if (isset($_SESSION['id_admin']) && isset($_SESSION['user_admin'])) {
   require_once "header.php";
   require_once "../../config/koneksi.php";
 ?>
@@ -41,7 +41,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
             <!-- END OF ALERT -->
 
             <?php
-            $id = $_SESSION['id'];
+            $id = $_SESSION['id_admin'];
             $query = $koneksi->query("SELECT * FROM admin WHERE id_admin='$id'");
             $row = mysqli_fetch_array($query);
             ?>

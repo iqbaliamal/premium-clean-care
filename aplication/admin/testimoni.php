@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
+if (isset($_SESSION['id_admin']) && isset($_SESSION['user_admin'])) {
   require_once "header.php";
   require_once "../../config/koneksi.php";
 ?>
@@ -167,7 +167,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
 
           <form action="fungsi/fungsi_testimoni.php" method="POST">
             <div class="modal-body">
-              <input type="hidden" name="delete_id" id="delete_id">
+              <input type="hidden" name="delete_id" id="delete">
               <h5> Apakah anda yakin akan menghapus data?</h5>
             </div>
             <div class="modal-footer">
@@ -202,7 +202,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
 
           console.log(data);
 
-          $('#delete_id').val(data[1]);
+          $('#delete').val(data[1]);
         });
       });
     });
