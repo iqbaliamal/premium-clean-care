@@ -98,11 +98,12 @@ if (isset($_SESSION['id_admin']) && isset($_SESSION['user_admin'])) {
               <form action="fungsi/fungsi_order.php" method="POST">
                 <div class="modal-body">
                   <input type="hidden" name="delete_id" id="delete_id">
-                  <h5> Maaf Delete Masih Belum Berfungsi :(</h5>
+                  <h5> Apakah anda yakin ingin menghapus data?</h5>
+                  <!-- <h5> Maaf Delete Masih Belum Berfungsi :(</h5> -->
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal"> OK </button>
-                  <!-- <button type="submit" name="deleteOrderStatus" class="btn btn-danger"> Hapus </button> -->
+                  <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal"> OK </button> -->
+                  <button type="submit" name="deleteOrderStatus" class="btn btn-danger"> Hapus </button>
                 </div>
               </form>
 
