@@ -45,3 +45,5 @@ if (isset($_GET['page'])) {
 // END OF KONTEN
 
 include("aplication/public/footer.php");
+
+// coba perubahan untuk cpanel
