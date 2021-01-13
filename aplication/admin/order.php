@@ -80,7 +80,7 @@ if (isset($_SESSION['id_admin']) && isset($_SESSION['user_admin'])) {
                   <div class="text-s mr-auto font-italic mb-2"><?= $data['merk']; ?> | <?= $data['warna']; ?> |
                     <?= $data['ukuran']; ?></div>
                   <div class="text-s font-weight-bold">
-                    <button class="border-0 btn-transition btn-sm btn-outline-danger" type="button" data-toggle="modal" data-target="#deleteOrder"> <i class=" fa fa-trash"></i> </button>
+                    <button class="deletebtn border-0 btn-transition btn-sm btn-outline-danger" type="button" data-toggle="modal" data-target="#deleteOrder" data-order-id="<?= $data['id_order']; ?>"> <i class=" fa fa-trash"></i> </button>
                   </div>
                 </div>
               </div>
@@ -97,13 +97,13 @@ if (isset($_SESSION['id_admin']) && isset($_SESSION['user_admin'])) {
 
               <form action="fungsi/fungsi_order.php" method="POST">
                 <div class="modal-body">
-                  <input type="hidden" name="delete_id" id="delete_id">
+                  <input type="hidden" name="delete_id" id="deleteId">
                   <h5> Apakah anda yakin ingin menghapus data?</h5>
                   <!-- <h5> Maaf Delete Masih Belum Berfungsi :(</h5> -->
                 </div>
                 <div class="modal-footer">
                   <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal"> OK </button> -->
-                  <button type="submit" name="deleteOrderStatus" class="btn btn-danger"> Hapus </button>
+                  <button type="submit" name="deleteDataOrder" class="btn btn-danger"> Hapus </button>
                 </div>
               </form>
 
@@ -117,6 +117,12 @@ if (isset($_SESSION['id_admin']) && isset($_SESSION['user_admin'])) {
       <?php
       require_once "footer.php";
       ?>
+      <script>
+        $(document).on("click", ".deletebtn", function() {
+          var orderID = $(this).data('order-id');
+          $(".modal-body #deleteId").val(orderID);
+        });
+      </script>
     <?php
   } else {
     header("Location: login.php");

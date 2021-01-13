@@ -25,3 +25,26 @@ if (isset($_POST['detail_order'])) {
     header("location: ../order.php?sukses=Data Order berhasil di update!");
   };
 }
+
+if (isset($_POST['deleteDataOrder'])) {
+  function validate($data)
+  {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+  }
+  $idOrder  = validate($_POST['delete_id']);
+
+  $queryDelete  = $koneksi->prepare("DELETE FROM `order` WHERE id_order='$idOrder'");
+  $queryDelete->execute();
+
+  if (!$queryDelete) {
+    header("location: ../order.php?error=Data order gagal di hapus!");
+    //DEBUG
+    die("Query gagal dijalankan: " . mysqli_errno($koneksi) .
+      " - " . mysqli_error($koneksi));
+  } else {
+    header("location: ../order.php?sukses=Data Order berhasil di hapus!");
+  };
+}
