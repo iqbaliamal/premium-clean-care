@@ -15,9 +15,9 @@ if (isset($_POST['reset_pw'])) {
     $expDate = date("Y-m-d H:i:s", $expFormat);
     $key = md5(2418 * 2 + $email);
     $addKey = substr(md5(uniqid(rand(), 1)), 3, 10);
-    $key = $key . $addKey;
+    $token = $key . $addKey;
     // Insert ke temp table
-    $query = $koneksi->query("INSERT INTO reset_pw_temp SET email='$email', expdate='$expDate', token='$key'");
+    $query = $koneksi->query("INSERT INTO reset_pw_temp SET email='$email', expdate='$expDate', token='$token'");
 
     // Email kirim
     $output = '    
@@ -358,9 +358,9 @@ if (isset($_POST['reset_pw'])) {
                               <td>
                                   <div class="text" style="padding: 0 2.5em; text-align: center;">
                                       <h2>Silahkan klik tombol berikut untuk reset password!</h2>
-                                      <p><a href="http://premium-care.wsjti.com/index.php?page=resetpw&token=' . $key . '&email=' . $email . '&action=reset" class="btn btn-primary">Ubah</a></p>
+                                      <p><a href="http://premium-care.wsjti.com/index.php?page=resetpw&token=' . $token . '&email=' . $email . '&action=reset" class="btn btn-primary">Ubah</a></p>
                                       <h3>Jika tombol tidak berfungsi klik di sini</h3>
-                                      http://premium-care.wsjti.com/index.php?page=resetpw&token=' . $key . '&email=' . $email . '&action=reset
+                                      http://premium-care.wsjti.com/index.php?page=resetpw&token=' . $token . '&email=' . $email . '&action=reset
                                   </div>
                               </td>
                           </tr>
