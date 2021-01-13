@@ -113,11 +113,13 @@ session_start();
 
         <nav class="nav-menu d-none d-lg-block m-auto">
           <ul>
-            <li class="active"><a href="Index.php">BERANDA</a>
-            <li><a href="Index.php#favorit">FAVORIT</a></li>
-            <li><a href="Index.php#layanan">LAYANAN</a></li>
-            <li><a href="Index.php#testimonials">TESTIMONI</a></li>
-            <li><a href="Index.php#ceknota">CEK NOTA</a></li>
+            <li class="active">
+              <a href="" onclick="location.href='index.php'">BERANDA</a>
+            </li>
+            <li><a href="" onclick="location.href='index.php#favorit'">FAVORIT</a></li>
+            <li><a href="" onclick="location.href='index.php#layanan'">LAYANAN</a></li>
+            <li><a href="" onclick="location.href='index.php#testimonials'">TESTIMONI</a></li>
+            <li><a href="" onclick="location.href='index.php#ceknota'">CEK NOTA</a></li>
           </ul>
         </nav><!-- .nav-menu -->
         <?php
@@ -200,7 +202,7 @@ session_start();
 
         <nav class="nav-menu d-none d-lg-block m-auto">
           <ul>
-            <li class="active"><a href="Index.php#">BERANDA</a></li>
+            <li class="active"><a href="index.php#">BERANDA</a></li>
             <li><a href="#favorit">FAVORIT</a></li>
             <li><a href="#layanan">LAYANAN</a></li>
             <li><a href="#testimonials">TESTIMONI</a></li>
