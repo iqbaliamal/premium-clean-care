@@ -10,17 +10,17 @@ require '../../assets/vendor/autoload.php';
 
 // RESET PASSWORD ====================================================================================
 if (isset($_POST['reset_pw'])) {
-  $email = $_POST["email"];
-  $expFormat = mktime(date("H"), date("i"), date("s"), date("m"), date("d") + 1, date("Y"));
-  $expDate = date("Y-m-d H:i:s", $expFormat);
-  $key = md5(2418 * 2 + $email);
-  $addKey = substr(md5(uniqid(rand(), 1)), 3, 10);
-  $key = $key . $addKey;
-  // Insert ke temp table
-  $query = $koneksi->query("INSERT INTO reset_pw_temp SET email='$email', expdate='$expDate', token='$key'");
+    $email = $_POST["email"];
+    $expFormat = mktime(date("H"), date("i"), date("s"), date("m"), date("d") + 1, date("Y"));
+    $expDate = date("Y-m-d H:i:s", $expFormat);
+    $key = md5(2418 * 2 + $email);
+    $addKey = substr(md5(uniqid(rand(), 1)), 3, 10);
+    $key = $key . $addKey;
+    // Insert ke temp table
+    $query = $koneksi->query("INSERT INTO reset_pw_temp SET email='$email', expdate='$expDate', token='$key'");
 
-  // Email kirim
-  $output = '    
+    // Email kirim
+    $output = '    
   <!DOCTYPE html>
   <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"
       xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -358,9 +358,9 @@ if (isset($_POST['reset_pw'])) {
                               <td>
                                   <div class="text" style="padding: 0 2.5em; text-align: center;">
                                       <h2>Silahkan klik tombol berikut untuk reset password!</h2>
-                                      <p><a href="http://localhost/premium-clean-care/index.php?page=resetpw&token=" class="btn btn-primary">Ubah</a></p>
+                                      <p><a href="http://premium-care.wsjti.com/index.php?page=resetpw&token=" class="btn btn-primary">Ubah</a></p>
                                       <h3>Jika tombol tidak berfungsi klik di sini</h3>
-                                      http://localhost/premium-clean-care/index.php?page=resetpw&token=
+                                      http://premium-care.wsjti.com/index.php?page=resetpw&token=
                                   </div>
                               </td>
                           </tr>
@@ -378,34 +378,34 @@ if (isset($_POST['reset_pw'])) {
   
   </html>
     ';
-  $body = $output;
-  $subject = "Account Recovery - Premium Clean And Care";
+    $body = $output;
+    $subject = "Account Recovery - Premium Clean And Care";
 
-  $email_to = $email;
-  $fromserver = "no-reply@premium.com";
-  $mail = new PHPMailer();
-  $mail->IsSMTP();
-  $mail->Host = "smtp.gmail.com"; // Enter your host here
-  $mail->SMTPAuth = true;
-  $mail->Username = "iqbalakunsendmail@gmail.com"; // Enter your email here
-  $mail->Password = "Iqbal2000"; //Enter your passwrod here
-  $mail->Port = 587;
-  $mail->IsHTML(true);
-  $mail->setFrom('no-reply@premium.com', 'Premium Clean And Care');
-  $mail->FromName = "Premium Clean And Care";
-  $mail->Sender = $fromserver; // indicates ReturnPath header
-  $mail->Subject = $subject;
-  $mail->Body = $body;
-  $mail->AddAddress($email_to);
-  if (!$mail->Send()) {
-    echo "Mailer Error: " . $mail->ErrorInfo;
-  } else {
-    //     echo "<div class='error'>
-    // <p>An email has been sent to you with instructions on how to reset your password.</p>
-    // </div><br /><br /><br />";
-    header('Location: ../../index.php?page=forgot&sukses=Account Recovery telah dikirim, silahkan cek email anda untuk reset password!');
-  }
+    $email_to = $email;
+    $fromserver = "no-reply@premium.com";
+    $mail = new PHPMailer();
+    $mail->IsSMTP();
+    $mail->Host = "smtp.gmail.com"; // Enter your host here
+    $mail->SMTPAuth = true;
+    $mail->Username = "iqbalakunsendmail@gmail.com"; // Enter your email here
+    $mail->Password = "Iqbal2000"; //Enter your passwrod here
+    $mail->Port = 587;
+    $mail->IsHTML(true);
+    $mail->setFrom('no-reply@premium.com', 'Premium Clean And Care');
+    $mail->FromName = "Premium Clean And Care";
+    $mail->Sender = $fromserver; // indicates ReturnPath header
+    $mail->Subject = $subject;
+    $mail->Body = $body;
+    $mail->AddAddress($email_to);
+    if (!$mail->Send()) {
+        echo "Mailer Error: " . $mail->ErrorInfo;
+    } else {
+        //     echo "<div class='error'>
+        // <p>An email has been sent to you with instructions on how to reset your password.</p>
+        // </div><br /><br /><br />";
+        header('Location: ../../index.php?page=forgot&sukses=Account Recovery telah dikirim, silahkan cek email anda untuk reset password!');
+    }
 } else {
-  header('Location: ../../index.php?page=forgot&error=Masukkan email terlebih dahulu!');
+    header('Location: ../../index.php?page=forgot&error=Masukkan email terlebih dahulu!');
 }
 // END OF RESET PASSWORD ====================================================================================

@@ -426,9 +426,9 @@ if (isset($_POST['register'])) {
                                 <td>
                                     <div class="text" style="padding: 0 2.5em; text-align: center;">
                                         <h2>Please verify your email</h2>
-                                        <p><a href="http://localhost/premium-clean-care/index.php?page=confirm&token=' . $token . '" class="btn btn-primary">Verify</a></p>
+                                        <p><a href="http://premium-care.wsjti.com/index.php?page=confirm&token=' . $token . '" class="btn btn-primary">Verify</a></p>
                                         <h3>Jika tombol tidak berfungsi klik link berikut</h3>
-                                        http://localhost/premium-clean-care/index.php?page=confirm&token=' . $token . '
+                                        http://premium-care.wsjti.com/index.php?page=confirm&token=' . $token . '
                                     </div>
                                 </td>
                             </tr>

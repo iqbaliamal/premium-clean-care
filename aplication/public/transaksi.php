@@ -6,30 +6,30 @@ $message = "";
 
 function clean_text($data)
 {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
 };
 
 function auto_nota()
 {
-  include "../../config/koneksi.php";
-  $num      = "";
-  $prefix   = "P-";
-  $query    = "SELECT MAX(id_order) AS nota FROM `order`";
-  $run      = mysqli_query($koneksi, $query);
-  $data     = mysqli_fetch_array($run);
-  $row      = mysqli_fetch_row($run);
-  $num      = $data['nota'];
-  $number   = (int)substr($num, 2, 5);
-  $number++;
-  if ($row > 0) {
-    return "kode telah digunakan";
-  } else {
-    $value  = $prefix . sprintf("%05s", $number);
-  }
-  return $value;
+    include "../../config/koneksi.php";
+    $num      = "";
+    $prefix   = "P-";
+    $query    = "SELECT MAX(id_order) AS nota FROM `order`";
+    $run      = mysqli_query($koneksi, $query);
+    $data     = mysqli_fetch_array($run);
+    $row      = mysqli_fetch_row($run);
+    $num      = $data['nota'];
+    $number   = (int)substr($num, 2, 5);
+    $number++;
+    if ($row > 0) {
+        return "kode telah digunakan";
+    } else {
+        $value  = $prefix . sprintf("%05s", $number);
+    }
+    return $value;
 };
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -38,36 +38,36 @@ use PHPMailer\PHPMailer\SMTP;
 require '../../assets/vendor/autoload.php';
 
 if (isset($_POST["transaksi"])) {
-  $id_layanan = clean_text($_POST['id']);
-  $layanan = clean_text($_POST['layanan']);
-  $harga = clean_text($_POST['harga']);
-  $merk = clean_text($_POST['merk']);
-  $ukuran = clean_text($_POST['ukuran']);
-  $warna = clean_text($_POST['warna']);
-  $waktu = clean_text($_POST['waktu']);
-  $lokasi = clean_text($_POST['lokasi']);
+    $id_layanan = clean_text($_POST['id']);
+    $layanan = clean_text($_POST['layanan']);
+    $harga = clean_text($_POST['harga']);
+    $merk = clean_text($_POST['merk']);
+    $ukuran = clean_text($_POST['ukuran']);
+    $warna = clean_text($_POST['warna']);
+    $waktu = clean_text($_POST['waktu']);
+    $lokasi = clean_text($_POST['lokasi']);
 
-  $nama = clean_text($_POST['nama']);
-  $email = clean_text($_POST['email']);
-  $no_hp = clean_text($_POST['no_hp']);
-  $tgl  = date('d/m/Y', time());
+    $nama = clean_text($_POST['nama']);
+    $email = clean_text($_POST['email']);
+    $no_hp = clean_text($_POST['no_hp']);
+    $tgl  = date('d/m/Y', time());
 
-  $id_order = auto_nota();
+    $id_order = auto_nota();
 
-  $query = $koneksi->prepare("INSERT INTO `order` 
+    $query = $koneksi->prepare("INSERT INTO `order` 
   (`id_order`, `id_layanan`, `id_order_status`, `harga`, `merk`, `ukuran`, `warna`, `tanggal_pick`, `lokasi_pick`, `nama_pelanggan`, `email`, `nomor_hp`) VALUE 
   ('$id_order', '$id_layanan', 1 , '$harga', '$merk', '$ukuran', '$warna', '$waktu', '$lokasi', '$nama', '$email', '$no_hp' )");
-  $query->execute();
+    $query->execute();
 
-  // if ($query) {
-  //   echo "halo berhasil";
-  // } else {
-  //   echo "halo gagal";
-  //   die("Query gagal dijalankan: " . mysqli_errno($koneksi) .
-  //     " - " . mysqli_error($koneksi));
-  // }
+    // if ($query) {
+    //   echo "halo berhasil";
+    // } else {
+    //   echo "halo gagal";
+    //   die("Query gagal dijalankan: " . mysqli_errno($koneksi) .
+    //     " - " . mysqli_error($koneksi));
+    // }
 
-  $message = '
+    $message = '
   <!DOCTYPE html>
   <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"
       xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -530,7 +530,7 @@ if (isset($_POST["transaksi"])) {
                       </tr>
                       <tr>
                           <td valign="middle" style="text-align:left; padding: 1em 2.5em;">
-                              <p><a href="http://localhost/premium-clean-care" class="btn btn-primary">Continur your order</a></p>
+                              <p><a href="http://premium-care.wsjti.com/" class="btn btn-primary">Continur your order</a></p>
                           </td>
                       </tr>
                   </table>
@@ -543,24 +543,24 @@ if (isset($_POST["transaksi"])) {
   </html>
    ';
 
-  $mail = new PHPMailer;
-  $mail->IsSMTP();        //Sets Mailer to send message using SMTP
-  $mail->Host = 'smtp.gmail.com';  //Sets the SMTP hosts of your Email hosting, this for Godaddy
-  $mail->Port = '587';        //Sets the default SMTP server port
-  $mail->SMTPAuth = true;       //Sets SMTP authentication. Utilizes the Username and Password variables
-  $mail->Username = 'iqbalakunsendmail@gmail.com';     //Sets SMTP username
-  $mail->Password = 'Iqbal2000';     //Sets SMTP password
-  $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-  $mail->setFrom('no-reply@premium.com', 'Premium Clean And Care');
-  $mail->addAddress($email, $nama);  //Adds a "To" address
-  $mail->IsHTML(true);       //Sets message type to HTML
-  $mail->Subject = 'ORDER DETAILS';    //Sets the Subject of the message
-  $mail->Body = $message;       //An HTML or plain text message body
-  if ($mail->Send())        //Send an Email. Return true on success or false on error
-  {
-    $message = '<div class="alert alert-success">Application Successfully Submitted</div>';
-    header("location: ../../index.php?page=detail&idl=" . $id_layanan . "&sukses=Transaksi berhasil! Silahkan cek email anda");
-  } else {
-    $message = '<div class="alert alert-danger">There is an Error</div>';
-  }
+    $mail = new PHPMailer;
+    $mail->IsSMTP();        //Sets Mailer to send message using SMTP
+    $mail->Host = 'smtp.gmail.com';  //Sets the SMTP hosts of your Email hosting, this for Godaddy
+    $mail->Port = '587';        //Sets the default SMTP server port
+    $mail->SMTPAuth = true;       //Sets SMTP authentication. Utilizes the Username and Password variables
+    $mail->Username = 'iqbalakunsendmail@gmail.com';     //Sets SMTP username
+    $mail->Password = 'Iqbal2000';     //Sets SMTP password
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->setFrom('no-reply@premium.com', 'Premium Clean And Care');
+    $mail->addAddress($email, $nama);  //Adds a "To" address
+    $mail->IsHTML(true);       //Sets message type to HTML
+    $mail->Subject = 'ORDER DETAILS';    //Sets the Subject of the message
+    $mail->Body = $message;       //An HTML or plain text message body
+    if ($mail->Send())        //Send an Email. Return true on success or false on error
+    {
+        $message = '<div class="alert alert-success">Application Successfully Submitted</div>';
+        header("location: ../../index.php?page=detail&idl=" . $id_layanan . "&sukses=Transaksi berhasil! Silahkan cek email anda");
+    } else {
+        $message = '<div class="alert alert-danger">There is an Error</div>';
+    }
 }
