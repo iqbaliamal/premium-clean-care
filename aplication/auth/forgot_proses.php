@@ -358,9 +358,9 @@ if (isset($_POST['reset_pw'])) {
                               <td>
                                   <div class="text" style="padding: 0 2.5em; text-align: center;">
                                       <h2>Silahkan klik tombol berikut untuk reset password!</h2>
-                                      <p><a href="http://premium-care.wsjti.com/index.php?page=resetpw&token=" class="btn btn-primary">Ubah</a></p>
+                                      <p><a href="http://premium-care.wsjti.com/index.php?page=resetpw&token=' . $token . '&email=' . $email . '&action=reset" class="btn btn-primary">Ubah</a></p>
                                       <h3>Jika tombol tidak berfungsi klik di sini</h3>
-                                      http://premium-care.wsjti.com/index.php?page=resetpw&token=
+                                      http://premium-care.wsjti.com/index.php?page=resetpw&token=' . $token . '&email=' . $email . '&action=reset
                                   </div>
                               </td>
                           </tr>
