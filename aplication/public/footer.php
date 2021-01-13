@@ -6,8 +6,8 @@
 
           <div class="col-lg-4 col-md-6">
             <div class="footer-info">
-              <h3>LOGO<span>.</span></h3>
-
+              <!-- <h3>LOGO<span>.</span></h3> -->
+              <img src="assets/img/logo.png" style="width:200px">
             </div>
           </div>
 
@@ -29,11 +29,11 @@
               Phone : 0812-2222-3333 <br>
               Whatsapp : 0812-9999-6666</p>
             <p>
-              <h4>Jam Operasional</h4>
-              <p>Senin – Jumat : 10.00 – 20.00 <br>
-                Sabtu - Minggu : 11.00 – 19.00
-              </p>
-              <p>
+            <h4>Jam Operasional</h4>
+            <p>Senin – Jumat : 10.00 – 20.00 <br>
+              Sabtu - Minggu : 11.00 – 19.00
+            </p>
+            <p>
           </div>
 
         </div>
@@ -58,8 +58,8 @@
         <div class="col-md-4 col-sm-6 col-xs-12">
           <div class="social-links social-media">
             <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+            <a href="https://www.instagram.com/premiumclean_care/" class="instagram" target="_blank"><i class="bx bxl-instagram"></i></a>
+            <a href="https://api.whatsapp.com/send?phone=6288990816404" class="whatsapp" target="_blank"><i class="bx bxl-whatsapp"></i></a>
           </div>
         </div>
       </div>

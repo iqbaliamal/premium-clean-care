@@ -45,78 +45,179 @@ session_start();
 <body>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top header-inner-pages">
-    <div>
-      <nav class="navbar navbar-expand-lg navbar-light bg-white navbar-up py-0">
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="index.php?page=home">Beranda</a>
-            </li>
-            <!-- <li class="nav-item">
+  <?php
+  if (isset($_GET['page'])) {
+  ?>
+    <header id="header" class="fixed-top header-inner-pages">
+      <div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white navbar-up py-0">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="index.php">Beranda</a>
+              </li>
+              <!-- <li class="nav-item">
             <span class="nav-link" href="">|</span>
           </li> -->
-            <!-- <li class="nav-item">
+              <!-- <li class="nav-item">
             <a class="nav-link" href="aplication/public/contact.php">Hubungi Kami</a>
           </li> -->
-            <li class="nav-item">
-              <span class="nav-link" href="">|</span>
-            </li>
-            <?php
-            if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
-              $id     = $_SESSION['id'];
-              $queryProfile  = $koneksi->query("SELECT * FROM `member` WHERE id_member='$id'");
-              $data   = mysqli_fetch_assoc($queryProfile);
-            ?>
-              <li class="nav-item dropdown no-arrow">
-                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $data['nama_member'] ?></span>
-                  <i class="fas fa-sort-down"></i>
-                  <!-- <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60"> -->
-                </a>
-                <!-- Dropdown - User Information -->
-                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                  <a class="dropdown-item" href="aplication/auth/logout.php">
-                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Logout
-                  </a>
-                </div>
-              </li>
-            <?php
-            } else {
-            ?>
               <li class="nav-item">
-                <a href="index.php?page=login" class="nav-link">Login</a>
+                <span class="nav-link" href="">|</span>
               </li>
-            <?php
-            }
-            ?>
+              <?php
+              if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
+                $id     = $_SESSION['id'];
+                $queryProfile  = $koneksi->query("SELECT * FROM `member` WHERE id_member='$id'");
+                $data   = mysqli_fetch_assoc($queryProfile);
+              ?>
+                <li class="nav-item dropdown no-arrow">
+                  <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $data['nama_member'] ?></span>
+                    <i class="fas fa-sort-down"></i>
+                    <!-- <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60"> -->
+                  </a>
+                  <!-- Dropdown - User Information -->
+                  <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                    <a class="dropdown-item" href="aplication/auth/logout.php">
+                      <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                      Logout
+                    </a>
+                  </div>
+                </li>
+              <?php
+              } else {
+              ?>
+                <li class="nav-item">
+                  <a href="index.php?page=login" class="nav-link">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">|</a>
+                </li>
+                <li class="nav-item">
+                  <a href="index.php?page=register" class="nav-link">Register</a>
+                </li>
+              <?php
+              }
+              ?>
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+      <div class="container d-flex align-items-center justify-content-between">
+
+        <!-- <h1 class="logo"><a href="index.php?page=home">LOGO<span>.</span></a></h1> -->
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <a href="index.php" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
+
+        <nav class="nav-menu d-none d-lg-block m-auto">
+          <ul>
+            <li class="active"><a href="Index.php">BERANDA</a>
+            <li><a href="Index.php#favorit">FAVORIT</a></li>
+            <li><a href="Index.php#layanan">LAYANAN</a></li>
+            <li><a href="Index.php#testimonials">TESTIMONI</a></li>
+            <li><a href="Index.php#ceknota">CEK NOTA</a></li>
           </ul>
-        </div>
-      </nav>
-    </div>
+        </nav><!-- .nav-menu -->
+        <?php
+        if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
+        ?>
+          <a href="index.php?page=profile" class="get-started-btn">Profile</a>
+        <?php } else { ?>
+          <a href="index.php?page=login" class="get-started-btn">Login</a>
+          <a href="index.php?page=register" class="register-btn">Register</a>
+        <?php } ?>
+      </div>
+    </header><!-- End Header -->
 
-    <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index.php?page=home">LOGO<span>.</span></a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.php" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+  <?php
+  } else {
+  ?>
+    <header id="header" class="fixed-top header-inner-pages">
+      <div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white navbar-up py-0">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="index.php">Beranda</a>
+              </li>
+              <!-- <li class="nav-item">
+            <span class="nav-link" href="">|</span>
+          </li> -->
+              <!-- <li class="nav-item">
+            <a class="nav-link" href="aplication/public/contact.php">Hubungi Kami</a>
+          </li> -->
+              <li class="nav-item">
+                <span class="nav-link" href="">|</span>
+              </li>
+              <?php
+              if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
+                $id     = $_SESSION['id'];
+                $queryProfile  = $koneksi->query("SELECT * FROM `member` WHERE id_member='$id'");
+                $data   = mysqli_fetch_assoc($queryProfile);
+              ?>
+                <li class="nav-item dropdown no-arrow">
+                  <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $data['nama_member'] ?></span>
+                    <i class="fas fa-sort-down"></i>
+                    <!-- <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60"> -->
+                  </a>
+                  <!-- Dropdown - User Information -->
+                  <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                    <a class="dropdown-item" href="aplication/auth/logout.php">
+                      <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                      Logout
+                    </a>
+                  </div>
+                </li>
+              <?php
+              } else {
+              ?>
+                <li class="nav-item">
+                  <a href="index.php?page=login" class="nav-link">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">|</a>
+                </li>
+                <li class="nav-item">
+                  <a href="index.php?page=register" class="nav-link">Register</a>
+                </li>
+              <?php
+              }
+              ?>
+            </ul>
+          </div>
+        </nav>
+      </div>
 
-      <nav class="nav-menu d-none d-lg-block m-auto">
-        <ul>
-          <li class="active"><a href="index.php?page=home">BERANDA</a></li>
-          <li><a href="#favorit">FAVORIT</a></li>
-          <li><a href="#layanan">LAYANAN</a></li>
-          <li><a href="#testimonials">TESTIMONI</a></li>
-          <li><a href="#ceknota">CEK NOTA</a></li>
-        </ul>
-      </nav><!-- .nav-menu -->
-      <?php
-      if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
-      ?>
-        <a href="index.php?page=profile" class="get-started-btn">Profile</a>
-      <?php } else { ?>
-        <a href="index.php?page=login" class="get-started-btn">Login</a>
-      <?php } ?>
-    </div>
-  </header><!-- End Header -->
+      <div class="container d-flex align-items-center justify-content-between">
+
+        <!-- <h1 class="logo"><a href="index.php?page=home">LOGO<span>.</span></a></h1> -->
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <a href="index.php" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
+
+        <nav class="nav-menu d-none d-lg-block m-auto">
+          <ul>
+            <li class="active"><a href="Index.php#">BERANDA</a></li>
+            <li><a href="#favorit">FAVORIT</a></li>
+            <li><a href="#layanan">LAYANAN</a></li>
+            <li><a href="#testimonials">TESTIMONI</a></li>
+            <li><a href="#ceknota">CEK NOTA</a></li>
+          </ul>
+        </nav><!-- .nav-menu -->
+        <?php
+        if (isset($_SESSION['id']) && isset($_SESSION['nama'])) {
+        ?>
+          <a href="index.php?page=profile" class="get-started-btn">Profile</a>
+        <?php } else { ?>
+          <a href="index.php?page=login" class="get-started-btn">Login</a>
+          <a href="index.php?page=register" class="register-btn">Register</a>
+        <?php } ?>
+      </div>
+    </header><!-- End Header -->
+  <?php
+
+  }
+  ?>
