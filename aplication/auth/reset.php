@@ -8,7 +8,7 @@ if (
   $email = $_GET["email"];
   $action = $_GET["action"];
   $curDate = date("Y-m-d H:i:s");
-  $query = $koneksi->query("SELECT * FROM reset_pw_temp WHERE token='$token' AND email='$email'");
+  $query = $koneksi->query("SELECT * FROM `reset_pw_temp` WHERE token='$token' AND email='$email'");
   $row = mysqli_num_rows($query);
   if ($row == "") {
     header('Location: index.php?page=forgot&error=Link tidak cocok/kadaluarsa. silahkan reset ulang password anda!');
