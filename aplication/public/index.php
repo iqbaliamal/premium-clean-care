@@ -27,14 +27,23 @@
 
         <!-- LAYANAN TERFAVORIT  ==== BELUM FIX ==== -->
         <?php
-        $query = $koneksi->query("SELECT * FROM layanan LEFT JOIN jenis_layanan ON layanan.id_jenis_layanan=jenis_layanan.id_jenis_layanan ORDER BY layanan.id_layanan ASC LIMIT 3");
+        // $query = $koneksi->query("SELECT * FROM layanan LEFT JOIN jenis_layanan ON layanan.id_jenis_layanan=jenis_layanan.id_jenis_layanan ORDER BY layanan.id_layanan ASC LIMIT 3");
+        $query = $koneksi->query("SELECT COUNT(order.id_layanan) AS fav, order.id_layanan, nama_layanan AS nama, gambar AS gbr_produk FROM `layanan` JOIN `order` ON layanan.id_layanan=order.id_layanan GROUP BY order.id_layanan ORDER BY fav DESC LIMIT 3;");
+
+        if (!$query) {
+          echo "gagal";
+          echo (mysqli_errno($koneksi));
+          echo " -  ";
+          echo (mysqli_error($koneksi)); 
+        };
+        
         while ($fav = mysqli_fetch_assoc($query)) {
 
         ?>
           <div class="col-lg-4 col-md-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
             <div class="icon-box">
-              <img src="assets/img/gambar_layanan/<?= $fav['gambar']; ?>" class="img-fluid mb-3" alt="">
-              <h4><a href="index.php?page=detail&idl=<?= $fav['id_layanan']; ?>"><?= $fav['nama_layanan']; ?></a></h4>
+              <img src="assets/img/gambar_layanan/<?= $fav['gbr_produk']; ?>" class="img-fluid mb-3" alt="">
+              <h4><a href="index.php?page=detail&idl=<?= $fav['id_layanan']; ?>"><?= $fav['nama']; ?></a></h4>
             </div>
           </div>
         <?php } ?>

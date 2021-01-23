@@ -41,9 +41,9 @@ if (isset($_POST["transaksi"])) {
     $id_layanan = clean_text($_POST['id']);
     $layanan = clean_text($_POST['layanan']);
     $harga = clean_text($_POST['harga']);
-    $merk = clean_text($_POST['merk']);
-    $ukuran = clean_text($_POST['ukuran']);
-    $warna = clean_text($_POST['warna']);
+    $merk = clean_text($_POST['merk'] ?? "");
+    $ukuran = clean_text($_POST['ukuran'] ?? "");
+    $warna = clean_text($_POST['warna'] ?? "");
     $waktu = clean_text($_POST['waktu']);
     $lokasi = clean_text($_POST['lokasi']);
 
