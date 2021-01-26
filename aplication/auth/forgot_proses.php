@@ -16,22 +16,7 @@ if (isset($_POST['reset_pw'])) {
     $key = md5(2418 * 2 + $email);
     $addKey = substr(md5(uniqid(rand(), 1)), 3, 10);
     $token = $key . $addKey;
-    // cek kondisi apakah token sudah ada atau tidak
-    $queryCek = $koneksi->query("SELECT * FROM `reset_pw_temp` WHERE email='$email'");
-    if (mysqli_num_rows($queryCek) > 0) {
-        // update token yang baru
-        $queryUpdate = $koneksi->query("UPDATE `reset_pw_temp` SET expdate='$expDate', token='$token' WHERE email='$email'");
-        //DEBUG
-        // if (!$queryUpdate) {
-        //     echo "gagal";
-        //     die("Query gagal dijalankan: " . mysqli_errno($koneksi) .
-        //         " - " . mysqli_error($koneksi));
-        // } else {
-        //     echo "berhasil";
-        // };
-
-        // Email kirim
-        $output = '    
+    $output = '    
                 <!DOCTYPE html>
                 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"
                     xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -389,6 +374,22 @@ if (isset($_POST['reset_pw'])) {
                 
                 </html>
                   ';
+    // cek kondisi apakah token sudah ada atau tidak
+    $queryCek = $koneksi->query("SELECT * FROM `reset_pw_temp` WHERE email='$email'");
+    if (mysqli_num_rows($queryCek) > 0) {
+        // update token yang baru
+        $queryUpdate = $koneksi->query("UPDATE `reset_pw_temp` SET expdate='$expDate', token='$token' WHERE email='$email'");
+        //DEBUG
+        // if (!$queryUpdate) {
+        //     echo "gagal";
+        //     die("Query gagal dijalankan: " . mysqli_errno($koneksi) .
+        //         " - " . mysqli_error($koneksi));
+        // } else {
+        //     echo "berhasil";
+        // };
+
+        // Email kirim
+        
         $body = $output;
         $subject = "Account Recovery - Premium Clean And Care";
 
