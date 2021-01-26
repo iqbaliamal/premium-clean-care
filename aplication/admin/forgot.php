@@ -29,12 +29,24 @@
 					<div class="card-body">
 						<h3 class="mb-5">ACCOUNT RECOVERY</h3>
 						<p>Enter your e-mail address below to reset your password</p>
-						<form>
+						<!-- ALERT -->
+						<?php if (isset($_GET['sukses'])) { ?>
+          				<div class="alert alert-success" role="alert">
+            			<?php echo $_GET['sukses'] ?>
+          				</div>
+        				<?php } ?>
+        				<?php if (isset($_GET['error'])) { ?>
+          				<div class="alert alert-danger" role="alert">
+            				<?php echo $_GET['error'] ?>
+          					</div>
+        				<?php } ?>
+        				<!-- END OF ALERT -->
+						<form method="POST" action="fungsi/auth.php">
 							<div class="form-group">
 								<input type="email" name="email" class="form-control" placeholder="Email">
 							</div>
 							<div class="form-group my-4">
-								<a href="" class="btn btn-linear-primary btn-rounded px-5">Submit</a>
+								<button type="submit" name="forgotadmin" class="btn btn-linear-primary btn-rounded px-5">Submit</button>
 							</div>
 							<p><a href="login.php" id="create_account">Already have an account? Login!</a></p>
 						</form>
