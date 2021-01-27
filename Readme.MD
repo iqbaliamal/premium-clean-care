@@ -1,12 +1,12 @@
 # PREMIUM CLEAN AND CARE
 
-KELOMPOK 15 (SEMESTER 3)
-Mata Kuliah : WORKSHOP SISTEM INFORMASI BERBASIS WEB,
-WORKSHOP PENGEMBANGAN PERANGKAT LUNAK,
-PERMODELAN SISTEM INFORMASI
-PROGRAM STUDI TEKNIK INFORMATIKA
-JURUSAN TEKNOLOGI INFORMASI
-POLITEKNIK NEGERI JEMBER
+- KELOMPOK 15 (SEMESTER 3)
+- Mata Kuliah : WORKSHOP SISTEM INFORMASI BERBASIS WEB,
+- WORKSHOP PENGEMBANGAN PERANGKAT LUNAK,
+- PERMODELAN SISTEM INFORMASI
+- PROGRAM STUDI TEKNIK INFORMATIKA
+- JURUSAN TEKNOLOGI INFORMASI
+- POLITEKNIK NEGERI JEMBER
 
 ## DEVELOPER TIM
 
@@ -48,31 +48,31 @@ This system was created by PHP and MySQL (Native).
 
 ## REQUIREMENT
 
-PHP 7.1.33
-phpMyAdmin 4.9.2
+- PHP 7.1.33
+- phpMyAdmin 4.9.2
 
 ## USAGE
 
-Halaman admin
-Username : admin
-Password : adminxyz
-or
-Email : admin@admin.com
-Password : adminxyz
+- Halaman admin
+- Username : admin
+- Password : adminxyz
+- or
+- Email : admin@admin.com
+- Password : adminxyz
 
-Login Member
-username : demo
-password : demo123
+- Login Member
+- username : demo
+- password : demo123
 
-link demo : [klik disini](#)
+- link demo : [klik disini](http://premium-care.wsjti.com)
 
 ## TEMPLATE
 
 Special thanks to
 
 - Template Name: Gp
-  Template URL: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/
-  Author: BootstrapMade.com
-  License: https://bootstrapmade.com/license/
+- Template URL: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/
+- Author: BootstrapMade.com
+- License: https://bootstrapmade.com/license/
 - Template admin : [SB Admin 2](https://startbootstrap.com/themes/sb-admin-2/)
 - PHPMailer : [PHPMailer](https://github.com/PHPMailer/PHPMailer.git)
