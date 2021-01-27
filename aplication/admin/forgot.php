@@ -41,7 +41,7 @@
           					</div>
         				<?php } ?>
         				<!-- END OF ALERT -->
-						<form method="POST" action="fungsi/auth.php">
+						<form action="fungsi/fungsi_forgot.php" method="POST">
 							<div class="form-group">
 								<input type="email" name="email" class="form-control" placeholder="Email">
 							</div>
