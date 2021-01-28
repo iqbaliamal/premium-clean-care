@@ -143,8 +143,8 @@
   <section id="ceknota">
     <div class="container" data-aos="fade-up">
       <div class="section-title">
-        <h2>Cek Proses Order</h2>
-        <p>CEK PROSES ORDER</p>
+        <h2>Cek Status</h2>
+        <p>CEK STATUS TRANSAKSI</p>
       </div>
 
       <!-- END OF ALERT -->

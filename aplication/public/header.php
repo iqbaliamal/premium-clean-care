@@ -119,7 +119,7 @@ session_start();
             <li><a href="" onclick="location.href='index.php#favorit'">FAVORIT</a></li>
             <li><a href="" onclick="location.href='index.php#layanan'">LAYANAN</a></li>
             <li><a href="" onclick="location.href='index.php#testimonials'">TESTIMONI</a></li>
-            <li><a href="" onclick="location.href='index.php#ceknota'">CEK NOTA</a></li>
+            <li><a href="" onclick="location.href='index.php#ceknota'">CEK STATUS</a></li>
           </ul>
         </nav><!-- .nav-menu -->
         <?php
@@ -206,7 +206,7 @@ session_start();
             <li><a href="#favorit">FAVORIT</a></li>
             <li><a href="#layanan">LAYANAN</a></li>
             <li><a href="#testimonials">TESTIMONI</a></li>
-            <li><a href="#ceknota">CEK NOTA</a></li>
+            <li><a href="#ceknota">CEK STATUS</a></li>
           </ul>
         </nav><!-- .nav-menu -->
         <?php
