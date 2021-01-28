@@ -58,7 +58,7 @@ if (isset($_POST['register'])) {
         // if your network does not support SMTP over IPv6
 
         //Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
-        $mail->Port = '587';
+        $mail->Port = 587;
 
         //Set the encryption mechanism to use - STARTTLS or SMTPS
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
