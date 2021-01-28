@@ -5,7 +5,7 @@
     <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
       <div class="col-xl-6 col-lg-8">
         <h1>Premium Clean And Care<span>.</span></h1>
-        <h2>We clean and care your shoes</h2>
+        <h2>Your Pleasure Is Our Priority</h2>
       </div>
     </div>
 
@@ -143,8 +143,8 @@
   <section id="ceknota">
     <div class="container" data-aos="fade-up">
       <div class="section-title">
-        <h2>Cek Nota</h2>
-        <p>CEK NOTA</p>
+        <h2>Cek Proses Order</h2>
+        <p>CEK PROSES ORDER</p>
       </div>
 
       <!-- END OF ALERT -->
@@ -155,7 +155,7 @@
               <input type="text" class="form-control" name="nota" placeholder="Cek Nota" />
             </div>
             <div class="col-2 pl-0" style="max-width: 13%;">
-              <button type="submit" name="submit" class="btn btn-dark float-right">Cek Status</button>
+              <button type="submit" name="submit" class="btn btn-dark float-right">Cek </button>
             </div>
           </div>
           <?php
