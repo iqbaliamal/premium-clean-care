@@ -69,7 +69,7 @@ if (isset($_SESSION['id_admin']) && isset($_SESSION['user_admin'])) {
               ?>
                 <tr>
                   <td><?= $no++; ?></td>
-                  <td><?= $data['id_jenis_layanan']; ?></td>
+                  <td hidden><?= $data['id_jenis_layanan']; ?></td>
                   <td><?= $data['jenis_layanan']; ?></td>
                   <td>
                     <button class="editbtn border-0 btn-transition btn btn-outline-warning" type="button"> <i class="fa fa-edit"></i> </button>
