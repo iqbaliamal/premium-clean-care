@@ -53,6 +53,7 @@ if (isset($_POST['register'])) {
 
         //Set the hostname of the mail server
         $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPSecure = 'tls';
         // use
         // $mail->Host = gethostbyname('smtp.gmail.com');
         // if your network does not support SMTP over IPv6
@@ -67,10 +68,10 @@ if (isset($_POST['register'])) {
         $mail->SMTPAuth = true;
 
         //Username to use for SMTP authentication - use full email address for gmail
-        $mail->Username = 'iqbalakunsendmail@gmail.com';
+        $mail->Username = '';
 
         //Password to use for SMTP authentication
-        $mail->Password = 'Iqbal2000';
+        $mail->Password = '';
 
         //Set who the message is to be sent from
         $mail->setFrom('no-reply@premium.com', 'Premium Clean And Care');
@@ -426,9 +427,9 @@ if (isset($_POST['register'])) {
                                 <td>
                                     <div class="text" style="padding: 0 2.5em; text-align: center;">
                                         <h2>Please verify your email</h2>
-                                        <p><a href="http://premium-care.wsjti.com/index.php?page=confirm&token=' . $token . '" class="btn btn-primary">Verify</a></p>
+                                        <p><a href="http://premium-care.workshopjti.com/index.php?page=confirm&token=' . $token . '" class="btn btn-primary">Verify</a></p>
                                         <h3>Jika tombol tidak berfungsi klik link berikut</h3>
-                                        http://premium-care.wsjti.com/index.php?page=confirm&token=' . $token . '
+                                        http://premium-care.workshopjti.com/index.php?page=confirm&token=' . $token . '
                                     </div>
                                 </td>
                             </tr>
